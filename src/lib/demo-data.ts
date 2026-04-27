@@ -90,11 +90,30 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
   { id: "p6", title: "Corper Hoodie • limited", price: 6_500, seller: "Kopa Merch", sellerRating: 4.9, sellerSales: 540, state: "Nationwide", lga: "Ships nationwide", category: "Marketplace", condition: "New", img: "👕", gallery: ["👕", "🧥"], inStock: 120, postedAt: "Restocked today", description: "Heavyweight 320gsm cotton hoodie with embroidered Corper crest. Sizes S–XXL. Ships to all 36 states + FCT in 3–5 days." },
 ];
 
-export const DEMO_LISTINGS = [
-  { id: "a1", title: "Self-con near GRA", price: 220_000, type: "Annual", state: "Lagos", lga: "Ikeja", img: "🏠", verified: true },
-  { id: "a2", title: "Mini-flat (2 corpers, 1 free)", price: 90_000, type: "Per Corper / yr", state: "Imo", lga: "Owerri", img: "🏡", verified: true },
-  { id: "a3", title: "Shared room — quiet", price: 45_000, type: "Per Corper / yr", state: "Oyo", lga: "Ibadan", img: "🛋️", verified: false },
-  { id: "a4", title: "Studio with WiFi", price: 320_000, type: "Annual", state: "Abuja", lga: "Gwarinpa", img: "🏢", verified: true },
+export interface DemoListing {
+  id: string;
+  title: string;
+  price: number;
+  type: string;
+  state: string;
+  lga: string;
+  img: string;
+  verified: boolean;
+  bedrooms: number;
+  bathrooms: number;
+  amenities: string[];
+  description: string;
+  landlord: string;
+  landlordPhone: string;
+  gallery: string[];
+  distanceToPPA: string;
+}
+
+export const DEMO_LISTINGS: DemoListing[] = [
+  { id: "a1", title: "Self-con near GRA", price: 220_000, type: "Annual", state: "Lagos", lga: "Ikeja", img: "🏠", verified: true, bedrooms: 1, bathrooms: 1, amenities: ["Prepaid meter", "Water borehole", "Tiled floor", "Fence + gate", "Wardrobe"], landlord: "Mr. Adekunle (verified landlord)", landlordPhone: "+234 803 ••• ••12", gallery: ["🏠", "🛏️", "🚿", "🍳"], distanceToPPA: "8 min drive to Ikeja secretariat", description: "Newly painted self-contained apartment in a quiet, gated compound 2 minutes off Awolowo Way. Tiled, en-suite bathroom, kitchen counter, prepaid meter so no NEPA wahala. Landlord lives off-site, agent on-call." },
+  { id: "a2", title: "Mini-flat (2 corpers, 1 free)", price: 90_000, type: "Per Corper / yr", state: "Imo", lga: "Owerri", img: "🏡", verified: true, bedrooms: 2, bathrooms: 1, amenities: ["Shared kitchen", "Tiled floor", "Borehole", "Generator backup"], landlord: "Existing corpers (Chika & Tola)", landlordPhone: "+234 815 ••• ••44", gallery: ["🏡", "🛋️", "🛏️"], distanceToPPA: "10 min walk to Owerri secretariat", description: "Two of us are already living here, looking for a third corper to take the spare room. Quiet, female-only flat, 5 minutes from CDS venue. Rent is per corper per year — utilities split three ways." },
+  { id: "a3", title: "Shared room — quiet", price: 45_000, type: "Per Corper / yr", state: "Oyo", lga: "Ibadan", img: "🛋️", verified: false, bedrooms: 1, bathrooms: 1, amenities: ["Shared kitchen", "Mattress provided"], landlord: "Posted by corper (unverified)", landlordPhone: "+234 706 ••• ••71", gallery: ["🛋️"], distanceToPPA: "20 min bus to PPA", description: "Looking for one more corper to share a room. Beds are partitioned, you get your own wardrobe. Landlord is fine with it as long as we're respectful." },
+  { id: "a4", title: "Studio with WiFi", price: 320_000, type: "Annual", state: "Abuja", lga: "Gwarinpa", img: "🏢", verified: true, bedrooms: 1, bathrooms: 1, amenities: ["Free WiFi", "AC", "Prepaid meter", "24h security", "Inverter"], landlord: "Hilltop Properties (verified)", landlordPhone: "+234 802 ••• ••03", gallery: ["🏢", "🛏️", "🛋️", "🚿"], distanceToPPA: "15 min drive to NYSC HQ", description: "Premium studio in Gwarinpa estate. Comes furnished with bed, sofa, AC, and the most reliable WiFi in the area. 24-hour estate security, two boreholes, and inverter backup for at least 6 hours of power outage." },
 ];
 
 export const DEMO_ROOMMATES = [
