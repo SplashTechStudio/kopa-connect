@@ -63,13 +63,31 @@ export const DEMO_LOANS: Loan[] = [
   },
 ];
 
-export const DEMO_PRODUCTS = [
-  { id: "p1", title: "Foam mattress (6x6, used 4 mo.)", price: 18_000, seller: "Tunde A.", state: "Lagos", category: "Declutter", img: "🛏️" },
-  { id: "p2", title: "Standing fan + extension", price: 9_500, seller: "Ngozi U.", state: "Lagos", category: "Declutter", img: "🌀" },
-  { id: "p3", title: "Full Room Setup Bundle", price: 65_000, seller: "Kopa Vendor", state: "Lagos", category: "Bundle", img: "📦" },
-  { id: "p4", title: "Gas cylinder 6kg", price: 14_000, seller: "Bola K.", state: "Oyo", category: "Declutter", img: "🔥" },
-  { id: "p5", title: "Reading lamp (rechargeable)", price: 4_200, seller: "Chuka E.", state: "Imo", category: "Declutter", img: "💡" },
-  { id: "p6", title: "Corper Hoodie • limited", price: 6_500, seller: "Kopa Merch", state: "Nationwide", category: "Marketplace", img: "👕" },
+export interface DemoProduct {
+  id: string;
+  title: string;
+  price: number;
+  seller: string;
+  sellerRating: number;
+  sellerSales: number;
+  state: string;
+  lga: string;
+  category: string;
+  condition: string;
+  img: string;
+  description: string;
+  gallery: string[];
+  inStock: number;
+  postedAt: string;
+}
+
+export const DEMO_PRODUCTS: DemoProduct[] = [
+  { id: "p1", title: "Foam mattress (6x6, used 4 mo.)", price: 18_000, seller: "Tunde A.", sellerRating: 4.8, sellerSales: 14, state: "Lagos", lga: "Ikeja", category: "Declutter", condition: "Used — like new", img: "🛏️", gallery: ["🛏️", "🛌", "📐"], inStock: 1, postedAt: "2 days ago", description: "Selling because I'm posted to Abuja for the next month. Mattress is 4 months old, no stains, kept in a smoke-free room. Includes the original cover. Pickup in Ikeja or pay-on-delivery within Lagos." },
+  { id: "p2", title: "Standing fan + extension", price: 9_500, seller: "Ngozi U.", sellerRating: 4.6, sellerSales: 7, state: "Lagos", lga: "Lekki", category: "Declutter", condition: "Used — good", img: "🌀", gallery: ["🌀", "🔌"], inStock: 1, postedAt: "5 days ago", description: "Powerful standing fan, 16-inch blades, three speed settings. Comes with a 4-yard extension. Reason for sale: POP next month, won't be needing it back home." },
+  { id: "p3", title: "Full Room Setup Bundle", price: 65_000, seller: "Kopa Vendor", sellerRating: 4.9, sellerSales: 312, state: "Lagos", lga: "Yaba", category: "Bundle", condition: "Mixed used", img: "📦", gallery: ["📦", "🛏️", "🌀", "🍳"], inStock: 5, postedAt: "Today", description: "Curated by Kopa Vendor. Includes mattress, standing fan, gas cylinder, kettle, reading lamp, and basic kitchenware. Perfect for new corpers landing at camp. Delivery available across Lagos within 48 hours." },
+  { id: "p4", title: "Gas cylinder 6kg", price: 14_000, seller: "Bola K.", sellerRating: 4.7, sellerSales: 9, state: "Oyo", lga: "Ibadan North", category: "Declutter", condition: "Used — good", img: "🔥", gallery: ["🔥", "🍳"], inStock: 1, postedAt: "1 week ago", description: "6kg cylinder. Just refilled — comes with about 5kg of gas in it. Hose and burner included. Selling cheap because I'm leaving Ibadan after POP." },
+  { id: "p5", title: "Reading lamp (rechargeable)", price: 4_200, seller: "Chuka E.", sellerRating: 5.0, sellerSales: 3, state: "Imo", lga: "Owerri Municipal", category: "Declutter", condition: "Used — like new", img: "💡", gallery: ["💡"], inStock: 1, postedAt: "3 days ago", description: "Saved my life during NEPA outages. Battery still holds 6+ hours on a full charge. USB-C charging." },
+  { id: "p6", title: "Corper Hoodie • limited", price: 6_500, seller: "Kopa Merch", sellerRating: 4.9, sellerSales: 540, state: "Nationwide", lga: "Ships nationwide", category: "Marketplace", condition: "New", img: "👕", gallery: ["👕", "🧥"], inStock: 120, postedAt: "Restocked today", description: "Heavyweight 320gsm cotton hoodie with embroidered Corper crest. Sizes S–XXL. Ships to all 36 states + FCT in 3–5 days." },
 ];
 
 export const DEMO_LISTINGS = [
