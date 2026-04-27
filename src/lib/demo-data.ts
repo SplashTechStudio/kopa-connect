@@ -116,7 +116,7 @@ export const DEMO_LISTINGS: DemoListing[] = [
   { id: "a4", title: "Studio with WiFi", price: 320_000, type: "Annual", state: "Abuja", lga: "Gwarinpa", img: "🏢", verified: true, bedrooms: 1, bathrooms: 1, amenities: ["Free WiFi", "AC", "Prepaid meter", "24h security", "Inverter"], landlord: "Hilltop Properties (verified)", landlordPhone: "+234 802 ••• ••03", gallery: ["🏢", "🛏️", "🛋️", "🚿"], distanceToPPA: "15 min drive to NYSC HQ", description: "Premium studio in Gwarinpa estate. Comes furnished with bed, sofa, AC, and the most reliable WiFi in the area. 24-hour estate security, two boreholes, and inverter backup for at least 6 hours of power outage." },
 ];
 
-export const DEMO_ROOMMATES = [
+
 export interface DemoRoommate {
   id: string;
   name: string;
