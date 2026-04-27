@@ -164,7 +164,7 @@ const Dashboard = () => {
           color="bg-surface"
         />
         <BentoCard
-          to="/app/profile"
+          to="/app/welfare"
           icon={Bell}
           title="Welfare ticket"
           tagline="Report an issue directly to NYSC officials."

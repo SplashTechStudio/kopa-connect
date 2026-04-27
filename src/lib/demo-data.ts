@@ -63,26 +63,82 @@ export const DEMO_LOANS: Loan[] = [
   },
 ];
 
-export const DEMO_PRODUCTS = [
-  { id: "p1", title: "Foam mattress (6x6, used 4 mo.)", price: 18_000, seller: "Tunde A.", state: "Lagos", category: "Declutter", img: "🛏️" },
-  { id: "p2", title: "Standing fan + extension", price: 9_500, seller: "Ngozi U.", state: "Lagos", category: "Declutter", img: "🌀" },
-  { id: "p3", title: "Full Room Setup Bundle", price: 65_000, seller: "Kopa Vendor", state: "Lagos", category: "Bundle", img: "📦" },
-  { id: "p4", title: "Gas cylinder 6kg", price: 14_000, seller: "Bola K.", state: "Oyo", category: "Declutter", img: "🔥" },
-  { id: "p5", title: "Reading lamp (rechargeable)", price: 4_200, seller: "Chuka E.", state: "Imo", category: "Declutter", img: "💡" },
-  { id: "p6", title: "Corper Hoodie • limited", price: 6_500, seller: "Kopa Merch", state: "Nationwide", category: "Marketplace", img: "👕" },
+export interface DemoProduct {
+  id: string;
+  title: string;
+  price: number;
+  seller: string;
+  sellerRating: number;
+  sellerSales: number;
+  state: string;
+  lga: string;
+  category: string;
+  condition: string;
+  img: string;
+  description: string;
+  gallery: string[];
+  inStock: number;
+  postedAt: string;
+}
+
+export const DEMO_PRODUCTS: DemoProduct[] = [
+  { id: "p1", title: "Foam mattress (6x6, used 4 mo.)", price: 18_000, seller: "Tunde A.", sellerRating: 4.8, sellerSales: 14, state: "Lagos", lga: "Ikeja", category: "Declutter", condition: "Used — like new", img: "🛏️", gallery: ["🛏️", "🛌", "📐"], inStock: 1, postedAt: "2 days ago", description: "Selling because I'm posted to Abuja for the next month. Mattress is 4 months old, no stains, kept in a smoke-free room. Includes the original cover. Pickup in Ikeja or pay-on-delivery within Lagos." },
+  { id: "p2", title: "Standing fan + extension", price: 9_500, seller: "Ngozi U.", sellerRating: 4.6, sellerSales: 7, state: "Lagos", lga: "Lekki", category: "Declutter", condition: "Used — good", img: "🌀", gallery: ["🌀", "🔌"], inStock: 1, postedAt: "5 days ago", description: "Powerful standing fan, 16-inch blades, three speed settings. Comes with a 4-yard extension. Reason for sale: POP next month, won't be needing it back home." },
+  { id: "p3", title: "Full Room Setup Bundle", price: 65_000, seller: "Kopa Vendor", sellerRating: 4.9, sellerSales: 312, state: "Lagos", lga: "Yaba", category: "Bundle", condition: "Mixed used", img: "📦", gallery: ["📦", "🛏️", "🌀", "🍳"], inStock: 5, postedAt: "Today", description: "Curated by Kopa Vendor. Includes mattress, standing fan, gas cylinder, kettle, reading lamp, and basic kitchenware. Perfect for new corpers landing at camp. Delivery available across Lagos within 48 hours." },
+  { id: "p4", title: "Gas cylinder 6kg", price: 14_000, seller: "Bola K.", sellerRating: 4.7, sellerSales: 9, state: "Oyo", lga: "Ibadan North", category: "Declutter", condition: "Used — good", img: "🔥", gallery: ["🔥", "🍳"], inStock: 1, postedAt: "1 week ago", description: "6kg cylinder. Just refilled — comes with about 5kg of gas in it. Hose and burner included. Selling cheap because I'm leaving Ibadan after POP." },
+  { id: "p5", title: "Reading lamp (rechargeable)", price: 4_200, seller: "Chuka E.", sellerRating: 5.0, sellerSales: 3, state: "Imo", lga: "Owerri Municipal", category: "Declutter", condition: "Used — like new", img: "💡", gallery: ["💡"], inStock: 1, postedAt: "3 days ago", description: "Saved my life during NEPA outages. Battery still holds 6+ hours on a full charge. USB-C charging." },
+  { id: "p6", title: "Corper Hoodie • limited", price: 6_500, seller: "Kopa Merch", sellerRating: 4.9, sellerSales: 540, state: "Nationwide", lga: "Ships nationwide", category: "Marketplace", condition: "New", img: "👕", gallery: ["👕", "🧥"], inStock: 120, postedAt: "Restocked today", description: "Heavyweight 320gsm cotton hoodie with embroidered Corper crest. Sizes S–XXL. Ships to all 36 states + FCT in 3–5 days." },
 ];
 
-export const DEMO_LISTINGS = [
-  { id: "a1", title: "Self-con near GRA", price: 220_000, type: "Annual", state: "Lagos", lga: "Ikeja", img: "🏠", verified: true },
-  { id: "a2", title: "Mini-flat (2 corpers, 1 free)", price: 90_000, type: "Per Corper / yr", state: "Imo", lga: "Owerri", img: "🏡", verified: true },
-  { id: "a3", title: "Shared room — quiet", price: 45_000, type: "Per Corper / yr", state: "Oyo", lga: "Ibadan", img: "🛋️", verified: false },
-  { id: "a4", title: "Studio with WiFi", price: 320_000, type: "Annual", state: "Abuja", lga: "Gwarinpa", img: "🏢", verified: true },
+export interface DemoListing {
+  id: string;
+  title: string;
+  price: number;
+  type: string;
+  state: string;
+  lga: string;
+  img: string;
+  verified: boolean;
+  bedrooms: number;
+  bathrooms: number;
+  amenities: string[];
+  description: string;
+  landlord: string;
+  landlordPhone: string;
+  gallery: string[];
+  distanceToPPA: string;
+}
+
+export const DEMO_LISTINGS: DemoListing[] = [
+  { id: "a1", title: "Self-con near GRA", price: 220_000, type: "Annual", state: "Lagos", lga: "Ikeja", img: "🏠", verified: true, bedrooms: 1, bathrooms: 1, amenities: ["Prepaid meter", "Water borehole", "Tiled floor", "Fence + gate", "Wardrobe"], landlord: "Mr. Adekunle (verified landlord)", landlordPhone: "+234 803 ••• ••12", gallery: ["🏠", "🛏️", "🚿", "🍳"], distanceToPPA: "8 min drive to Ikeja secretariat", description: "Newly painted self-contained apartment in a quiet, gated compound 2 minutes off Awolowo Way. Tiled, en-suite bathroom, kitchen counter, prepaid meter so no NEPA wahala. Landlord lives off-site, agent on-call." },
+  { id: "a2", title: "Mini-flat (2 corpers, 1 free)", price: 90_000, type: "Per Corper / yr", state: "Imo", lga: "Owerri", img: "🏡", verified: true, bedrooms: 2, bathrooms: 1, amenities: ["Shared kitchen", "Tiled floor", "Borehole", "Generator backup"], landlord: "Existing corpers (Chika & Tola)", landlordPhone: "+234 815 ••• ••44", gallery: ["🏡", "🛋️", "🛏️"], distanceToPPA: "10 min walk to Owerri secretariat", description: "Two of us are already living here, looking for a third corper to take the spare room. Quiet, female-only flat, 5 minutes from CDS venue. Rent is per corper per year — utilities split three ways." },
+  { id: "a3", title: "Shared room — quiet", price: 45_000, type: "Per Corper / yr", state: "Oyo", lga: "Ibadan", img: "🛋️", verified: false, bedrooms: 1, bathrooms: 1, amenities: ["Shared kitchen", "Mattress provided"], landlord: "Posted by corper (unverified)", landlordPhone: "+234 706 ••• ••71", gallery: ["🛋️"], distanceToPPA: "20 min bus to PPA", description: "Looking for one more corper to share a room. Beds are partitioned, you get your own wardrobe. Landlord is fine with it as long as we're respectful." },
+  { id: "a4", title: "Studio with WiFi", price: 320_000, type: "Annual", state: "Abuja", lga: "Gwarinpa", img: "🏢", verified: true, bedrooms: 1, bathrooms: 1, amenities: ["Free WiFi", "AC", "Prepaid meter", "24h security", "Inverter"], landlord: "Hilltop Properties (verified)", landlordPhone: "+234 802 ••• ••03", gallery: ["🏢", "🛏️", "🛋️", "🚿"], distanceToPPA: "15 min drive to NYSC HQ", description: "Premium studio in Gwarinpa estate. Comes furnished with bed, sofa, AC, and the most reliable WiFi in the area. 24-hour estate security, two boreholes, and inverter backup for at least 6 hours of power outage." },
 ];
 
-export const DEMO_ROOMMATES = [
-  { id: "r1", name: "Chiamaka O.", age: 24, state: "Lagos", vibe: "Quiet, early sleeper", smokes: false, budget: 80_000 },
-  { id: "r2", name: "Femi A.", age: 26, state: "Lagos", vibe: "Tech bro, works from home", smokes: false, budget: 120_000 },
-  { id: "r3", name: "Hauwa M.", age: 23, state: "Abuja", vibe: "Loves cooking, neat", smokes: false, budget: 100_000 },
+
+export interface DemoRoommate {
+  id: string;
+  name: string;
+  age: number;
+  state: string;
+  lga: string;
+  vibe: string;
+  smokes: boolean;
+  budget: number;
+  occupation: string;
+  bio: string;
+  cleanliness: number;
+  socialBattery: number;
+  movesIn: string;
+  habits: string[];
+  verified: boolean;
+}
+
+export const DEMO_ROOMMATES: DemoRoommate[] = [
+  { id: "r1", name: "Chiamaka O.", age: 24, state: "Lagos", lga: "Ikeja", vibe: "Quiet, early sleeper", smokes: false, budget: 80_000, occupation: "ICT corper at Andela", bio: "Working remotely most days. I cook, I clean, and I'm usually in bed by 10pm. Looking for someone with similar energy — no late-night parties, please.", cleanliness: 9, socialBattery: 4, movesIn: "Available now", habits: ["Cooks at home", "WFH most days", "Non-smoker", "No pets"], verified: true },
+  { id: "r2", name: "Femi A.", age: 26, state: "Lagos", lga: "Lekki", vibe: "Tech bro, works from home", smokes: false, budget: 120_000, occupation: "Backend engineer (NYSC)", bio: "Building a side project on the side of NYSC. Need fast WiFi and someone who respects deep-work hours during the day. Down to split groceries and weekend movie nights.", cleanliness: 7, socialBattery: 6, movesIn: "From May 1st", habits: ["WFH 5 days", "Loves football", "Non-smoker"], verified: true },
+  { id: "r3", name: "Hauwa M.", age: 23, state: "Abuja", lga: "Gwarinpa", vibe: "Loves cooking, neat", smokes: false, budget: 100_000, occupation: "Pharmacy corper", bio: "I cook every weekend and I'd rather share groceries than do separate kitchens. Very neat — like, the kind of neat where the spices are alphabetical. Looking for a sister-roommate vibe.", cleanliness: 10, socialBattery: 7, movesIn: "Available now", habits: ["Loves cooking", "Early riser", "Non-smoker", "Plays Afrobeats"], verified: true },
 ];
 
 export const DEMO_FEED = [
@@ -152,10 +208,90 @@ export const DEMO_JOBS = [
   { id: "j3", title: "Field Sales Intern", company: "Sabi", location: "Abuja", type: "Internship", pay: "₦80k stipend" },
 ];
 
-export const DEMO_COURSES = [
-  { id: "c1", title: "Frontend with React (8 weeks)", instructor: "Kopa Academy", level: "Beginner", students: 1_240 },
-  { id: "c2", title: "Personal finance for corpers", instructor: "Qreva Money", level: "All levels", students: 3_512 },
-  { id: "c3", title: "Freelancing on Upwork", instructor: "Onyinye E.", level: "Intermediate", students: 980 },
+export interface DemoCourse {
+  id: string;
+  title: string;
+  instructor: string;
+  level: string;
+  students: number;
+  duration: string;
+  price: number;
+  rating: number;
+  emoji: string;
+  blurb: string;
+  outcomes: string[];
+  modules: { title: string; lessons: number; duration: string }[];
+  tags: string[];
+  certificate: boolean;
+}
+
+export const DEMO_COURSES: DemoCourse[] = [
+  {
+    id: "c1",
+    title: "Frontend with React (8 weeks)",
+    instructor: "Kopa Academy",
+    level: "Beginner",
+    students: 1_240,
+    duration: "8 weeks · ~6 hrs/week",
+    price: 0,
+    rating: 4.8,
+    emoji: "⚛️",
+    blurb: "Build production-ready interfaces in React from zero. Designed for corpers with 6 hours a week — finish before POP and ship a portfolio site that gets you hired.",
+    outcomes: ["Build and deploy a full React app", "Master Tailwind & component design", "Connect to APIs with React Query", "Land a junior frontend role after POP"],
+    modules: [
+      { title: "Web fundamentals refresher", lessons: 6, duration: "2 hrs" },
+      { title: "React in 90 minutes", lessons: 8, duration: "3 hrs" },
+      { title: "State, hooks & data fetching", lessons: 10, duration: "5 hrs" },
+      { title: "Tailwind & design systems", lessons: 7, duration: "3.5 hrs" },
+      { title: "Routing, auth & deployment", lessons: 9, duration: "4 hrs" },
+      { title: "Capstone — ship your portfolio", lessons: 4, duration: "1 week" },
+    ],
+    tags: ["Tech", "Most popular", "Job-ready"],
+    certificate: true,
+  },
+  {
+    id: "c2",
+    title: "Personal finance for corpers",
+    instructor: "Qreva Money",
+    level: "All levels",
+    students: 3_512,
+    duration: "3 weeks · ~2 hrs/week",
+    price: 0,
+    rating: 4.9,
+    emoji: "💸",
+    blurb: "Stretch your ₦33k allowance, start a savings habit you'll keep after POP, and avoid the loan-trap that catches most corpers in their first three months.",
+    outcomes: ["Budget your allawee in under 10 minutes", "Build a 3-month emergency fund", "Pick the right savings tools", "Negotiate your first salary post-POP"],
+    modules: [
+      { title: "Where your allawee actually goes", lessons: 4, duration: "45 min" },
+      { title: "The corper budget that works", lessons: 5, duration: "1 hr" },
+      { title: "Saving + investing on a stipend", lessons: 6, duration: "1.5 hrs" },
+      { title: "Surviving emergencies & loans", lessons: 4, duration: "1 hr" },
+    ],
+    tags: ["Finance", "Beginner-friendly"],
+    certificate: true,
+  },
+  {
+    id: "c3",
+    title: "Freelancing on Upwork",
+    instructor: "Onyinye E.",
+    level: "Intermediate",
+    students: 980,
+    duration: "5 weeks · ~4 hrs/week",
+    price: 0,
+    rating: 4.7,
+    emoji: "🌍",
+    blurb: "Land your first international client while still serving. Real client templates, profile reviews, and a private community of corpers earning in dollars.",
+    outcomes: ["Build a profile that converts", "Win your first 3 contracts", "Price yourself in USD", "Get paid into a Naira wallet legally"],
+    modules: [
+      { title: "Profile + portfolio audit", lessons: 5, duration: "2 hrs" },
+      { title: "Proposals that actually win", lessons: 6, duration: "2.5 hrs" },
+      { title: "Pricing + scope conversations", lessons: 4, duration: "1.5 hrs" },
+      { title: "Receiving payments in Nigeria", lessons: 4, duration: "1.5 hrs" },
+      { title: "Scaling beyond Upwork", lessons: 5, duration: "2 hrs" },
+    ],
+    tags: ["Income", "Intermediate"],
+    certificate: true,
+  },
 ];
 
 export const NIGERIAN_STATES = [
@@ -164,4 +300,39 @@ export const NIGERIAN_STATES = [
   "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa",
   "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto", "Taraba",
   "Yobe", "Zamfara",
+];
+
+export const PRODUCT_CATEGORIES = ["Declutter", "Bundle", "Marketplace", "Electronics", "Kitchen", "Apparel"];
+export const ACCOMMODATION_TYPES = ["Self-contained", "Mini-flat", "Shared room", "Studio", "2-bedroom flat"];
+
+export interface DemoNotification {
+  id: string;
+  title: string;
+  body: string;
+  time: string;
+  type: "official" | "finance" | "marketplace" | "community";
+  read: boolean;
+}
+
+export const DEMO_NOTIFICATIONS: DemoNotification[] = [
+  { id: "n1", title: "April allawee credited", body: "₦33,000 has been added to your wallet by NYSC Finance.", time: "2h", type: "finance", read: false },
+  { id: "n2", title: "Tunde A. accepted your offer", body: "Foam mattress is held in Safetrade. Confirm pickup to release ₦18,000.", time: "5h", type: "marketplace", read: false },
+  { id: "n3", title: "NYSC Lagos posted an announcement", body: "Clearance for Batch A begins Monday 28th. Tap to read.", time: "Yesterday", type: "official", read: false },
+  { id: "n4", title: "Allawee Advance approved", body: "Your ₦25,000 advance is in your wallet. Repaid on next allowance.", time: "2 days", type: "finance", read: true },
+  { id: "n5", title: "Hauwa M. wants to roommate", body: "She matched your budget and lives close to your CDS venue.", time: "3 days", type: "community", read: true },
+];
+
+export interface DemoTicket {
+  id: string;
+  title: string;
+  status: "open" | "in_review" | "resolved";
+  category: string;
+  body: string;
+  time: string;
+  assigned?: string;
+}
+
+export const DEMO_TICKETS: DemoTicket[] = [
+  { id: "t1", title: "Allowance not credited for March", status: "resolved", category: "Allowance", body: "I didn't receive my March allowance. Resolved after providing my new account details.", time: "3 weeks ago", assigned: "Lagos State NYSC Finance" },
+  { id: "t2", title: "PPA rejection — request relocation", status: "in_review", category: "PPA", body: "PPA refused to accept me citing that they don't take corpers in my course. Requesting reposting.", time: "5 days ago", assigned: "Zonal Inspector" },
 ];

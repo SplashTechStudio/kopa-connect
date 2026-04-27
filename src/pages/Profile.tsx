@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { AppShell } from "@/components/AppShell";
 import { Button } from "@/components/ui/button";
 import { useMember } from "@/context/MemberContext";
@@ -51,7 +52,8 @@ const Profile = () => {
         <section className="lg:col-span-3 rounded-3xl bg-surface border border-border p-7">
           <h2 className="font-display text-lg font-semibold">Account</h2>
           <div className="mt-4 space-y-2">
-            <Button variant="soft" className="w-full justify-start">Welfare ticket</Button>
+            <Button asChild variant="soft" className="w-full justify-start"><Link to="/app/welfare">Welfare ticket</Link></Button>
+            <Button asChild variant="soft" className="w-full justify-start"><Link to="/app/notifications">Notifications</Link></Button>
             <Button variant="soft" className="w-full justify-start">Privacy & data</Button>
             <Button variant="soft" className="w-full justify-start">Help centre</Button>
             <Button onClick={signOut} variant="outline" className="w-full justify-start">

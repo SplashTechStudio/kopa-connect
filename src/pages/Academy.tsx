@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import { AppShell } from "@/components/AppShell";
 import { Button } from "@/components/ui/button";
 import { DEMO_COURSES, DEMO_JOBS } from "@/lib/demo-data";
-import { Briefcase, GraduationCap, HeartHandshake, Sparkles } from "lucide-react";
+import { Briefcase, GraduationCap, HeartHandshake, Sparkles, Star, Users } from "lucide-react";
 
 const Academy = () => {
   return (
@@ -36,11 +37,20 @@ const Academy = () => {
           <h2 className="font-display text-xl font-semibold flex items-center gap-2"><GraduationCap className="h-5 w-5" /> Featured courses</h2>
           <div className="mt-4 space-y-3">
             {DEMO_COURSES.map((c) => (
-              <div key={c.id} className="rounded-xl bg-surface-alt p-4">
-                <div className="font-semibold">{c.title}</div>
-                <div className="text-xs text-muted-foreground mt-1">{c.instructor} · {c.level} · {c.students.toLocaleString()} corpers</div>
-                <Button size="sm" className="mt-3">Enrol — free</Button>
-              </div>
+              <Link to={`/app/academy/${c.id}`} key={c.id} className="block rounded-xl bg-surface-alt p-4 hover:bg-surface transition-colors border border-transparent hover:border-border">
+                <div className="flex items-start gap-3">
+                  <div className="text-3xl">{c.emoji}</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold">{c.title}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{c.instructor} · {c.level}</div>
+                    <div className="flex items-center gap-3 text-[11px] text-muted-foreground mt-2">
+                      <span className="inline-flex items-center gap-1"><Users className="h-3 w-3" /> {c.students.toLocaleString()}</span>
+                      <span className="inline-flex items-center gap-1"><Star className="h-3 w-3 fill-warning text-warning" /> {c.rating}</span>
+                    </div>
+                  </div>
+                  <Button size="sm">View</Button>
+                </div>
+              </Link>
             ))}
           </div>
         </section>
