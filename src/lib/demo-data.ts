@@ -117,9 +117,28 @@ export const DEMO_LISTINGS: DemoListing[] = [
 ];
 
 export const DEMO_ROOMMATES = [
-  { id: "r1", name: "Chiamaka O.", age: 24, state: "Lagos", vibe: "Quiet, early sleeper", smokes: false, budget: 80_000 },
-  { id: "r2", name: "Femi A.", age: 26, state: "Lagos", vibe: "Tech bro, works from home", smokes: false, budget: 120_000 },
-  { id: "r3", name: "Hauwa M.", age: 23, state: "Abuja", vibe: "Loves cooking, neat", smokes: false, budget: 100_000 },
+export interface DemoRoommate {
+  id: string;
+  name: string;
+  age: number;
+  state: string;
+  lga: string;
+  vibe: string;
+  smokes: boolean;
+  budget: number;
+  occupation: string;
+  bio: string;
+  cleanliness: number;
+  socialBattery: number;
+  movesIn: string;
+  habits: string[];
+  verified: boolean;
+}
+
+export const DEMO_ROOMMATES: DemoRoommate[] = [
+  { id: "r1", name: "Chiamaka O.", age: 24, state: "Lagos", lga: "Ikeja", vibe: "Quiet, early sleeper", smokes: false, budget: 80_000, occupation: "ICT corper at Andela", bio: "Working remotely most days. I cook, I clean, and I'm usually in bed by 10pm. Looking for someone with similar energy — no late-night parties, please.", cleanliness: 9, socialBattery: 4, movesIn: "Available now", habits: ["Cooks at home", "WFH most days", "Non-smoker", "No pets"], verified: true },
+  { id: "r2", name: "Femi A.", age: 26, state: "Lagos", lga: "Lekki", vibe: "Tech bro, works from home", smokes: false, budget: 120_000, occupation: "Backend engineer (NYSC)", bio: "Building a side project on the side of NYSC. Need fast WiFi and someone who respects deep-work hours during the day. Down to split groceries and weekend movie nights.", cleanliness: 7, socialBattery: 6, movesIn: "From May 1st", habits: ["WFH 5 days", "Loves football", "Non-smoker"], verified: true },
+  { id: "r3", name: "Hauwa M.", age: 23, state: "Abuja", lga: "Gwarinpa", vibe: "Loves cooking, neat", smokes: false, budget: 100_000, occupation: "Pharmacy corper", bio: "I cook every weekend and I'd rather share groceries than do separate kitchens. Very neat — like, the kind of neat where the spices are alphabetical. Looking for a sister-roommate vibe.", cleanliness: 10, socialBattery: 7, movesIn: "Available now", habits: ["Loves cooking", "Early riser", "Non-smoker", "Plays Afrobeats"], verified: true },
 ];
 
 export const DEMO_FEED = [
