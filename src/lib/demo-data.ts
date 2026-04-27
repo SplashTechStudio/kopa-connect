@@ -208,10 +208,90 @@ export const DEMO_JOBS = [
   { id: "j3", title: "Field Sales Intern", company: "Sabi", location: "Abuja", type: "Internship", pay: "₦80k stipend" },
 ];
 
-export const DEMO_COURSES = [
-  { id: "c1", title: "Frontend with React (8 weeks)", instructor: "Kopa Academy", level: "Beginner", students: 1_240 },
-  { id: "c2", title: "Personal finance for corpers", instructor: "Qreva Money", level: "All levels", students: 3_512 },
-  { id: "c3", title: "Freelancing on Upwork", instructor: "Onyinye E.", level: "Intermediate", students: 980 },
+export interface DemoCourse {
+  id: string;
+  title: string;
+  instructor: string;
+  level: string;
+  students: number;
+  duration: string;
+  price: number;
+  rating: number;
+  emoji: string;
+  blurb: string;
+  outcomes: string[];
+  modules: { title: string; lessons: number; duration: string }[];
+  tags: string[];
+  certificate: boolean;
+}
+
+export const DEMO_COURSES: DemoCourse[] = [
+  {
+    id: "c1",
+    title: "Frontend with React (8 weeks)",
+    instructor: "Kopa Academy",
+    level: "Beginner",
+    students: 1_240,
+    duration: "8 weeks · ~6 hrs/week",
+    price: 0,
+    rating: 4.8,
+    emoji: "⚛️",
+    blurb: "Build production-ready interfaces in React from zero. Designed for corpers with 6 hours a week — finish before POP and ship a portfolio site that gets you hired.",
+    outcomes: ["Build and deploy a full React app", "Master Tailwind & component design", "Connect to APIs with React Query", "Land a junior frontend role after POP"],
+    modules: [
+      { title: "Web fundamentals refresher", lessons: 6, duration: "2 hrs" },
+      { title: "React in 90 minutes", lessons: 8, duration: "3 hrs" },
+      { title: "State, hooks & data fetching", lessons: 10, duration: "5 hrs" },
+      { title: "Tailwind & design systems", lessons: 7, duration: "3.5 hrs" },
+      { title: "Routing, auth & deployment", lessons: 9, duration: "4 hrs" },
+      { title: "Capstone — ship your portfolio", lessons: 4, duration: "1 week" },
+    ],
+    tags: ["Tech", "Most popular", "Job-ready"],
+    certificate: true,
+  },
+  {
+    id: "c2",
+    title: "Personal finance for corpers",
+    instructor: "Qreva Money",
+    level: "All levels",
+    students: 3_512,
+    duration: "3 weeks · ~2 hrs/week",
+    price: 0,
+    rating: 4.9,
+    emoji: "💸",
+    blurb: "Stretch your ₦33k allowance, start a savings habit you'll keep after POP, and avoid the loan-trap that catches most corpers in their first three months.",
+    outcomes: ["Budget your allawee in under 10 minutes", "Build a 3-month emergency fund", "Pick the right savings tools", "Negotiate your first salary post-POP"],
+    modules: [
+      { title: "Where your allawee actually goes", lessons: 4, duration: "45 min" },
+      { title: "The corper budget that works", lessons: 5, duration: "1 hr" },
+      { title: "Saving + investing on a stipend", lessons: 6, duration: "1.5 hrs" },
+      { title: "Surviving emergencies & loans", lessons: 4, duration: "1 hr" },
+    ],
+    tags: ["Finance", "Beginner-friendly"],
+    certificate: true,
+  },
+  {
+    id: "c3",
+    title: "Freelancing on Upwork",
+    instructor: "Onyinye E.",
+    level: "Intermediate",
+    students: 980,
+    duration: "5 weeks · ~4 hrs/week",
+    price: 0,
+    rating: 4.7,
+    emoji: "🌍",
+    blurb: "Land your first international client while still serving. Real client templates, profile reviews, and a private community of corpers earning in dollars.",
+    outcomes: ["Build a profile that converts", "Win your first 3 contracts", "Price yourself in USD", "Get paid into a Naira wallet legally"],
+    modules: [
+      { title: "Profile + portfolio audit", lessons: 5, duration: "2 hrs" },
+      { title: "Proposals that actually win", lessons: 6, duration: "2.5 hrs" },
+      { title: "Pricing + scope conversations", lessons: 4, duration: "1.5 hrs" },
+      { title: "Receiving payments in Nigeria", lessons: 4, duration: "1.5 hrs" },
+      { title: "Scaling beyond Upwork", lessons: 5, duration: "2 hrs" },
+    ],
+    tags: ["Income", "Intermediate"],
+    certificate: true,
+  },
 ];
 
 export const NIGERIAN_STATES = [
