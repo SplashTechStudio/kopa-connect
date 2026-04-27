@@ -336,3 +336,38 @@ export const DEMO_TICKETS: DemoTicket[] = [
   { id: "t1", title: "Allowance not credited for March", status: "resolved", category: "Allowance", body: "I didn't receive my March allowance. Resolved after providing my new account details.", time: "3 weeks ago", assigned: "Lagos State NYSC Finance" },
   { id: "t2", title: "PPA rejection — request relocation", status: "in_review", category: "PPA", body: "PPA refused to accept me citing that they don't take corpers in my course. Requesting reposting.", time: "5 days ago", assigned: "Zonal Inspector" },
 ];
+
+export interface DemoComment {
+  id: string;
+  postId: string;
+  parentId: string | null;
+  author: string;
+  handle: string;
+  verified: boolean;
+  official?: boolean;
+  time: string;
+  body: string;
+  upvotes: number;
+}
+
+export const DEMO_COMMENTS: DemoComment[] = [
+  // f1 — official NYSC announcement
+  { id: "c1", postId: "f1", parentId: null, author: "Tunde A.", handle: "@tundea", verified: true, time: "1h", body: "Will Saturday clearance also be open for those who missed the Monday slot? Some of us have CDS conflicts.", upvotes: 24 },
+  { id: "c2", postId: "f1", parentId: "c1", author: "NYSC Lagos State", handle: "@nysc_lagos", verified: true, official: true, time: "55m", body: "Yes — Saturday 10am–2pm at the Surulere office only. Bring your CDS card to confirm the conflict.", upvotes: 41 },
+  { id: "c3", postId: "f1", parentId: "c1", author: "Ngozi U.", handle: "@ngoziu", verified: true, time: "30m", body: "Thank you, just confirmed with my LI. Saturday works.", upvotes: 6 },
+  { id: "c4", postId: "f1", parentId: null, author: "Femi A.", handle: "@femi", verified: true, time: "45m", body: "Please how long does processing usually take on the day? Trying to plan around it.", upvotes: 11 },
+
+  // f2 — Adaeze asking about PPAs
+  { id: "c5", postId: "f2", parentId: null, author: "Femi A.", handle: "@femi", verified: true, time: "3h", body: "Andela actually takes corpers and lets you ship. I'm there now — DM if you want a referral.", upvotes: 38 },
+  { id: "c6", postId: "f2", parentId: "c5", author: "Adaeze Okonkwo", handle: "@adaeze", verified: true, time: "2h", body: "Sliding into your DMs — thank you 🙏", upvotes: 4 },
+  { id: "c7", postId: "f2", parentId: null, author: "Chuka E.", handle: "@chukae", verified: true, time: "2h", body: "Paystack and Flutterwave both have structured corper programs — apply early though, slots fill fast.", upvotes: 19 },
+
+  // f3 — devotional
+  { id: "c8", postId: "f3", parentId: null, author: "Hauwa M.", handle: "@hauwam", verified: true, time: "4h", body: "Amen. Needed this today 🙏", upvotes: 87 },
+  { id: "c9", postId: "f3", parentId: null, author: "Bola K.", handle: "@bolak", verified: true, time: "2h", body: "Sharing with my platoon group right now.", upvotes: 22 },
+
+  // f4 — CDS reminder
+  { id: "c10", postId: "f4", parentId: null, author: "Adaeze Okonkwo", handle: "@adaeze", verified: true, time: "20h", body: "I'll bring the deployment laptop. Anyone got a spare HDMI cable?", upvotes: 9 },
+  { id: "c11", postId: "f4", parentId: "c10", author: "Tunde A.", handle: "@tundea", verified: true, time: "18h", body: "I gat you. Meet me at the gate by 8:45.", upvotes: 3 },
+];
+
