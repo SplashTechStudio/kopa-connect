@@ -301,3 +301,38 @@ export const NIGERIAN_STATES = [
   "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto", "Taraba",
   "Yobe", "Zamfara",
 ];
+
+export const PRODUCT_CATEGORIES = ["Declutter", "Bundle", "Marketplace", "Electronics", "Kitchen", "Apparel"];
+export const ACCOMMODATION_TYPES = ["Self-contained", "Mini-flat", "Shared room", "Studio", "2-bedroom flat"];
+
+export interface DemoNotification {
+  id: string;
+  title: string;
+  body: string;
+  time: string;
+  type: "official" | "finance" | "marketplace" | "community";
+  read: boolean;
+}
+
+export const DEMO_NOTIFICATIONS: DemoNotification[] = [
+  { id: "n1", title: "April allawee credited", body: "₦33,000 has been added to your wallet by NYSC Finance.", time: "2h", type: "finance", read: false },
+  { id: "n2", title: "Tunde A. accepted your offer", body: "Foam mattress is held in Safetrade. Confirm pickup to release ₦18,000.", time: "5h", type: "marketplace", read: false },
+  { id: "n3", title: "NYSC Lagos posted an announcement", body: "Clearance for Batch A begins Monday 28th. Tap to read.", time: "Yesterday", type: "official", read: false },
+  { id: "n4", title: "Allawee Advance approved", body: "Your ₦25,000 advance is in your wallet. Repaid on next allowance.", time: "2 days", type: "finance", read: true },
+  { id: "n5", title: "Hauwa M. wants to roommate", body: "She matched your budget and lives close to your CDS venue.", time: "3 days", type: "community", read: true },
+];
+
+export interface DemoTicket {
+  id: string;
+  title: string;
+  status: "open" | "in_review" | "resolved";
+  category: string;
+  body: string;
+  time: string;
+  assigned?: string;
+}
+
+export const DEMO_TICKETS: DemoTicket[] = [
+  { id: "t1", title: "Allowance not credited for March", status: "resolved", category: "Allowance", body: "I didn't receive my March allowance. Resolved after providing my new account details.", time: "3 weeks ago", assigned: "Lagos State NYSC Finance" },
+  { id: "t2", title: "PPA rejection — request relocation", status: "in_review", category: "PPA", body: "PPA refused to accept me citing that they don't take corpers in my course. Requesting reposting.", time: "5 days ago", assigned: "Zonal Inspector" },
+];
