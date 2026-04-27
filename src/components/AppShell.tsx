@@ -177,15 +177,11 @@ const BottomNav = () => (
           key={to}
           to={to}
           end={end}
-          className="flex flex-col items-center gap-1 py-3 text-[10px] font-semibold text-primary-foreground/60"
+          className="flex flex-col items-center gap-1 py-3 text-[10px] font-semibold text-primary-foreground/60 transition-colors"
           activeClassName="!text-accent"
         >
-          {({ isActive }: { isActive: boolean }) => (
-            <>
-              <Icon className={cn("h-5 w-5", isActive && "drop-shadow-[0_0_8px_hsl(var(--accent))]")} />
-              <span>{label}</span>
-            </>
-          )}
+          <Icon className="h-5 w-5" />
+          <span>{label}</span>
         </NavLink>
       ))}
     </div>
