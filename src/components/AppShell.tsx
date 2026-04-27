@@ -1,12 +1,13 @@
 import { ReactNode } from "react";
 import {
   Home, Wallet, Store, Building2, MessageCircleMore,
-  GraduationCap, ShieldCheck, Menu, Bell, Search, LogOut, ChevronRight,
+  GraduationCap, ShieldCheck, Menu, Bell, Search, LogOut, ChevronRight, ShoppingBag,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { useMember } from "@/context/MemberContext";
+import { useCart } from "@/context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
