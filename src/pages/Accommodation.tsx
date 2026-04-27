@@ -1,24 +1,31 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { AppShell } from "@/components/AppShell";
 import { Button } from "@/components/ui/button";
 import { DEMO_LISTINGS, DEMO_ROOMMATES } from "@/lib/demo-data";
 import { formatNaira } from "@/lib/format";
 import { BadgeCheck, Building2, MapPin, Users } from "lucide-react";
+import { ListPlaceSheet } from "@/components/sheets/ListPlaceSheet";
 
 const Accommodation = () => {
+  const [listOpen, setListOpen] = useState(false);
+
   return (
     <AppShell title="Accommodation">
+      <ListPlaceSheet open={listOpen} onOpenChange={setListOpen} />
+
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
         <div>
           <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-muted-foreground">Verified landlords · Corper-to-corper transfers</div>
           <h1 className="font-display text-3xl font-semibold mt-1">Find a place. Find a roommate.</h1>
         </div>
-        <Button><Building2 className="h-4 w-4" /> List my place</Button>
+        <Button onClick={() => setListOpen(true)}><Building2 className="h-4 w-4" /> List my place</Button>
       </div>
 
       <h2 className="font-display text-xl font-semibold mt-8">Available listings</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {DEMO_LISTINGS.map((l) => (
-          <article key={l.id} className="rounded-2xl bg-surface border border-border overflow-hidden kw-card-hover">
+          <Link to={`/app/accommodation/${l.id}`} key={l.id} className="rounded-2xl bg-surface border border-border overflow-hidden kw-card-hover block">
             <div className="relative aspect-[5/3] bg-surface-alt flex items-center justify-center text-6xl">
               {l.img}
               {l.verified && (
@@ -38,14 +45,14 @@ const Accommodation = () => {
                 <Button size="sm" variant="soft">View</Button>
               </div>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
 
       <h2 className="font-display text-xl font-semibold mt-10 flex items-center gap-2"><Users className="h-5 w-5" /> Roommate finder</h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {DEMO_ROOMMATES.map((r) => (
-          <article key={r.id} className="rounded-2xl bg-surface border border-border p-5 kw-card-hover">
+          <Link to={`/app/roommate/${r.id}`} key={r.id} className="rounded-2xl bg-surface border border-border p-5 kw-card-hover block">
             <div className="flex items-center gap-3">
               <div className="h-12 w-12 rounded-full bg-primary text-primary-foreground font-display font-bold flex items-center justify-center">
                 {r.name.split(" ").map(p => p[0]).join("")}
@@ -60,7 +67,7 @@ const Accommodation = () => {
               <div className="text-sm">Budget: <span className="font-semibold tabular">{formatNaira(r.budget)}</span></div>
               <Button size="sm" variant="soft">Connect</Button>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </AppShell>
