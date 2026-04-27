@@ -133,6 +133,7 @@ const MobileSidebar = () => {
 
 const TopBar = ({ title }: { title?: string }) => {
   const { member } = useMember();
+  const { count } = useCart();
   const navigate = useNavigate();
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-border bg-background/80 backdrop-blur-md px-4 lg:px-8">
@@ -152,7 +153,15 @@ const TopBar = ({ title }: { title?: string }) => {
           <span>Search Kopa We…</span>
           <kbd className="ml-2 hidden md:inline-flex h-5 items-center rounded border border-border bg-background px-1.5 text-[10px] font-medium text-muted-foreground">⌘K</kbd>
         </button>
-        <Button variant="ghost" size="icon" className="relative">
+        <Button variant="ghost" size="icon" className="relative" onClick={() => navigate("/app/cart")} aria-label="Cart">
+          <ShoppingBag className="h-4 w-4" />
+          {count > 0 && (
+            <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-pill bg-accent text-accent-foreground text-[10px] font-bold flex items-center justify-center tabular ring-2 ring-background">
+              {count}
+            </span>
+          )}
+        </Button>
+        <Button variant="ghost" size="icon" className="relative" onClick={() => navigate("/app/notifications")} aria-label="Notifications">
           <Bell className="h-4 w-4" />
           <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-accent ring-2 ring-background" />
         </Button>
