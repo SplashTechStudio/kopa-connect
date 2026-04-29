@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, BadgeCheck, Bell, Building2, GraduationCap, Lock, MessageCircleMore, PiggyBank, Send, ShieldCheck, Sparkles, Store, Wallet } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeCheck, Bell, Building2, GraduationCap, Lock, MessageCircleMore, PiggyBank, Send, ShieldCheck, Sparkles, Store, Wallet, Smartphone, HeartHandshake } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { Button } from "@/components/ui/button";
 import { useMember } from "@/context/MemberContext";
@@ -8,11 +8,18 @@ import { DEMO_ANNOUNCEMENTS, DEMO_LEDGER, DEMO_WALLET } from "@/lib/demo-data";
 import { formatNaira } from "@/lib/format";
 import { LoanSheet } from "@/components/sheets/LoanSheet";
 import { TransferSheet } from "@/components/sheets/TransferSheet";
+import { PayBillsSheet } from "@/components/sheets/PayBillsSheet";
+import { AirtimeSheet } from "@/components/sheets/AirtimeSheet";
+import { DataSheet } from "@/components/sheets/DataSheet";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Dashboard = () => {
   const { member } = useMember();
   const [loanOpen, setLoanOpen] = useState(false);
   const [transferOpen, setTransferOpen] = useState(false);
+  const [billOpen, setBillOpen] = useState(false);
+  const [airtimeOpen, setAirtimeOpen] = useState(false);
+  const [dataOpen, setDataOpen] = useState(false);
 
   if (!member) return null;
 
@@ -20,6 +27,9 @@ const Dashboard = () => {
     <AppShell title={`Welcome, ${member.fullName.split(" ")[0]}.`}>
       <LoanSheet open={loanOpen} onOpenChange={setLoanOpen} />
       <TransferSheet open={transferOpen} onOpenChange={setTransferOpen} />
+      <PayBillsSheet open={billOpen} onOpenChange={setBillOpen} />
+      <AirtimeSheet open={airtimeOpen} onOpenChange={setAirtimeOpen} />
+      <DataSheet open={dataOpen} onOpenChange={setDataOpen} />
 
       <div className="grid lg:grid-cols-12 gap-5">
         {/* Wallet hero */}
@@ -28,9 +38,18 @@ const Dashboard = () => {
           <div className="relative">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-primary-foreground/70">
-                  Total wallet balance
-                </div>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-primary-foreground/70 cursor-help">
+                        Total wallet balance
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Your combined balance across all accounts.</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
                 <div className="font-display text-4xl md:text-5xl font-bold tabular mt-2">
                   {formatNaira(DEMO_WALLET.balance)}
                 </div>
@@ -44,20 +63,30 @@ const Dashboard = () => {
               </span>
             </div>
 
-            <div className="mt-7 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-              <QuickAction onClick={() => setTransferOpen(true)} icon={Send} label="Send" />
-              <QuickAction onClick={() => setLoanOpen(true)} icon={Sparkles} label="Allawee" highlight />
-              <QuickAction icon={Wallet} label="Pay bill" />
-              <QuickAction icon={PiggyBank} label="Save" />
+            <div className="mt-7 grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+              <QuickAction onClick={() => setTransferOpen(true)} icon={Send} label="Transfer" />
+              <QuickAction onClick={() => setLoanOpen(true)} icon={Sparkles} label="Get funded" highlight />
+              <QuickAction onClick={() => setBillOpen(true)} icon={Wallet} label="Pay bill" />
+              <QuickAction onClick={() => setAirtimeOpen(true)} icon={Smartphone} label="Airtime" />
+              <QuickAction onClick={() => setDataOpen(true)} icon={Smartphone} label="Data" />
             </div>
           </div>
         </section>
 
         {/* Credit score */}
         <section className="lg:col-span-4 rounded-3xl bg-surface border border-border p-6 lg:p-7">
-          <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-muted-foreground">
-            Corps credit score
-          </div>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-muted-foreground cursor-help">
+                  Corps credit score
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Based on your NYSC verification and financial behavior.</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
           <div className="font-display text-5xl font-semibold mt-2 tabular">{member.creditScore}</div>
           <div className="text-xs text-success font-semibold mt-1">Excellent · Tier 3 access</div>
 
@@ -99,12 +128,43 @@ const Dashboard = () => {
           color="bg-surface"
         />
 
+        {/* Career */}
+        <BentoCard
+          to="/app/academy"
+          icon={GraduationCap}
+          title="Kopawe Academy"
+          tagline="Skill up while serving. Land work after POP."
+          color="bg-surface"
+        />
+        <BentoCard
+          to="/app/welfare"
+          icon={HeartHandshake}
+          title="Welfare ticket"
+          tagline="Direct line to NYSC officials. Report issues."
+          color="bg-surface"
+        />
+        <BentoCard
+          to="/app/finance"
+          icon={Lock}
+          title="Safetrade"
+          tagline="Every deal protected. Funds held until both sides confirm."
+          color="bg-surface"
+        />
+
         {/* Announcements */}
         <section className="lg:col-span-8 rounded-3xl bg-surface border border-border p-6">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-muted-foreground">From NYSC</div>
-              <h2 className="font-display text-xl font-semibold mt-1">Latest announcements</h2>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <h2 className="font-display text-xl font-semibold mt-1 cursor-help">Latest announcements</h2>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Official updates and news from NYSC headquarters and state offices.</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             </div>
             <Button asChild variant="ghost" size="sm">
               <Link to="/app/community">View all <ArrowRight /></Link>
@@ -127,7 +187,16 @@ const Dashboard = () => {
         {/* Recent activity */}
         <section className="lg:col-span-4 rounded-3xl bg-surface border border-border p-6">
           <div className="flex items-center justify-between">
-            <h2 className="font-display text-xl font-semibold">Recent activity</h2>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <h2 className="font-display text-xl font-semibold cursor-help">Recent activity</h2>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>A history of your recent wallet and savings transactions.</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             <Button asChild variant="ghost" size="sm"><Link to="/app/finance">All <ArrowRight /></Link></Button>
           </div>
           <div className="mt-4 space-y-3">
@@ -148,28 +217,7 @@ const Dashboard = () => {
           </div>
         </section>
 
-        {/* Career */}
-        <BentoCard
-          to="/app/academy"
-          icon={GraduationCap}
-          title="Kopa Academy"
-          tagline="Skill up while serving. Land work after POP."
-          color="bg-surface"
-        />
-        <BentoCard
-          to="/app/finance"
-          icon={Lock}
-          title="Safetrade"
-          tagline="Every deal protected. Funds held until both sides confirm."
-          color="bg-surface"
-        />
-        <BentoCard
-          to="/app/welfare"
-          icon={Bell}
-          title="Welfare ticket"
-          tagline="Report an issue directly to NYSC officials."
-          color="bg-surface"
-        />
+
       </div>
     </AppShell>
   );

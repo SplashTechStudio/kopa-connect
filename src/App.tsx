@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,6 +24,11 @@ import Notifications from "./pages/Notifications";
 import Welfare from "./pages/Welfare";
 import Admin from "./pages/Admin";
 import Profile from "./pages/Profile";
+import Jobs from "./pages/Jobs";
+import Savings from "./pages/Savings";
+import Counselling from "./pages/Counselling";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient({
@@ -40,11 +45,15 @@ const App = () => (
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
               <Route path="/verify" element={<Verify />} />
 
               <Route path="/app" element={<RequireAuth><Dashboard /></RequireAuth>} />
               <Route path="/app/finance" element={<RequireAuth><Finance /></RequireAuth>} />
-              <Route path="/app/marketplace" element={<RequireAuth><Marketplace /></RequireAuth>} />
+              <Route path="/app/marketplace" element={<RequireAuth><Navigate to="/app/marketplace/storefront" replace /></RequireAuth>} />
+              <Route path="/app/marketplace/storefront" element={<RequireAuth><Marketplace /></RequireAuth>} />
+              <Route path="/app/marketplace/declutter" element={<RequireAuth><Marketplace /></RequireAuth>} />
               <Route path="/app/marketplace/:id" element={<RequireAuth><ItemDetail /></RequireAuth>} />
               <Route path="/app/cart" element={<RequireAuth><Cart /></RequireAuth>} />
               <Route path="/app/accommodation" element={<RequireAuth><Accommodation /></RequireAuth>} />
@@ -55,6 +64,9 @@ const App = () => (
               <Route path="/app/academy/:id" element={<RequireAuth><CourseDetail /></RequireAuth>} />
               <Route path="/app/notifications" element={<RequireAuth><Notifications /></RequireAuth>} />
               <Route path="/app/welfare" element={<RequireAuth><Welfare /></RequireAuth>} />
+              <Route path="/app/jobs" element={<RequireAuth><Jobs /></RequireAuth>} />
+              <Route path="/app/savings" element={<RequireAuth><Savings /></RequireAuth>} />
+              <Route path="/app/counselling" element={<RequireAuth><Counselling /></RequireAuth>} />
               <Route path="/app/profile" element={<RequireAuth><Profile /></RequireAuth>} />
               <Route path="/app/admin" element={<RequireAuth admin><Admin /></RequireAuth>} />
 

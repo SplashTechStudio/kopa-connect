@@ -168,6 +168,18 @@ const Community = () => {
 
         <aside className="lg:col-span-4 space-y-4">
           <div className="rounded-2xl bg-surface border border-border p-5">
+            <h3 className="font-display text-sm font-bold flex items-center gap-2 mb-3">
+              <ShieldCheck className="h-4 w-4 text-primary" /> Community Rules
+            </h3>
+            <ul className="text-xs space-y-2 text-muted-foreground">
+              <li className="flex gap-2"><span>•</span> Promote progressive & youth-focused conversations.</li>
+              <li className="flex gap-2"><span>•</span> No hate speech or controversial political debates.</li>
+              <li className="flex gap-2"><span>•</span> Verify information before sharing as 'Official'.</li>
+              <li className="flex gap-2"><span>•</span> Respect the privacy of fellow corp members.</li>
+            </ul>
+          </div>
+
+          <div className="rounded-2xl bg-surface border border-border p-5">
             <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-muted-foreground">
               Trending in {member?.state ?? "Lagos"}
             </div>
@@ -186,11 +198,11 @@ const Community = () => {
             <Pin className="h-4 w-4 text-accent" />
             <div className="font-display text-lg mt-2">Live poll</div>
             <div className="text-sm text-primary-foreground/70 mt-1">
-              Should NYSC adjust the allowance schedule?
+              Which skill-up category is most vital for life after POP?
             </div>
             <div className="mt-4 space-y-2">
-              {["Yes — pay weekly", "Keep monthly", "Add a stipend top-up"].map((o, i) => {
-                const base = [58, 27, 15][i];
+              {["Tech & Software", "Business & Finance", "Creative Arts & Media", "Vocational Skills"].map((o, i) => {
+                const base = [45, 25, 18, 12][i];
                 const adjusted = pollVote === i ? base + 1 : base;
                 const isMine = pollVote === i;
                 return (

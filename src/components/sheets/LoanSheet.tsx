@@ -38,7 +38,7 @@ export const LoanSheet = ({ open, onOpenChange }: { open: boolean; onOpenChange:
               <div className="inline-flex items-center gap-2 rounded-pill bg-accent text-accent-foreground self-start px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] w-fit">
                 <Sparkles className="h-3 w-3" /> Allawee Advance
               </div>
-              <SheetTitle className="font-display text-3xl">Borrow against your stipend.</SheetTitle>
+              <SheetTitle className="font-display text-3xl">Get funded.</SheetTitle>
               <p className="text-sm text-muted-foreground">Approved instantly using your Corps Credit Score. Repaid automatically on next allowance.</p>
             </SheetHeader>
 

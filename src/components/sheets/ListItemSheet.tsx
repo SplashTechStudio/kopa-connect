@@ -3,7 +3,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sh
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { BadgeCheck, Image as ImageIcon, Loader2, Lock, Store } from "lucide-react";
+import { BadgeCheck, Image as ImageIcon, Loader2, Lock, Store, CreditCard } from "lucide-react";
 import { PRODUCT_CATEGORIES } from "@/lib/demo-data";
 import { toast } from "sonner";
 
@@ -14,22 +14,26 @@ export const ListItemSheet = ({ open, onOpenChange }: { open: boolean; onOpenCha
   const [condition, setCondition] = useState("Used — like new");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
-  const [done, setDone] = useState(false);
+  const [step, setStep] = useState<"form" | "payment" | "done">("form");
 
   const reset = () => {
     setTitle(""); setPrice(""); setCategory(PRODUCT_CATEGORIES[0]);
-    setCondition("Used — like new"); setDescription(""); setDone(false);
+    setCondition("Used — like new"); setDescription(""); setStep("form");
   };
 
-  const submit = async () => {
+  const proceedToPayment = () => {
     if (!title || !price || !description) {
       toast.error("Fill in title, price and a short description.");
       return;
     }
+    setStep("payment");
+  };
+
+  const submit = async () => {
     setLoading(true);
     await new Promise((r) => setTimeout(r, 900));
     setLoading(false);
-    setDone(true);
+    setStep("done");
     toast.success(`"${title}" listed. We'll notify nearby corpers.`);
     setTimeout(() => { reset(); onOpenChange(false); }, 1400);
   };
@@ -37,7 +41,7 @@ export const ListItemSheet = ({ open, onOpenChange }: { open: boolean; onOpenCha
   return (
     <Sheet open={open} onOpenChange={(v) => { if (!v) reset(); onOpenChange(v); }}>
       <SheetContent side="bottom" className="rounded-t-3xl border-t-0 max-h-[92vh] overflow-y-auto">
-        {!done ? (
+        {step === "form" && (
           <>
             <SheetHeader className="text-left">
               <div className="inline-flex items-center gap-2 rounded-pill bg-accent text-accent-foreground self-start px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] w-fit">
@@ -98,12 +102,42 @@ export const ListItemSheet = ({ open, onOpenChange }: { open: boolean; onOpenCha
                 </div>
               </div>
 
-              <Button onClick={submit} disabled={loading} size="lg" className="w-full">
-                {loading ? <><Loader2 className="h-4 w-4 animate-spin" /> Posting…</> : <>Post listing</>}
+              <Button onClick={proceedToPayment} size="lg" className="w-full">
+                Continue to payment
               </Button>
             </div>
           </>
-        ) : (
+        )}
+        
+        {step === "payment" && (
+          <div className="py-6 animate-snap-in flex flex-col items-center">
+            <div className="h-16 w-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6">
+              <CreditCard className="h-8 w-8" />
+            </div>
+            <h2 className="font-display text-2xl font-semibold mb-2">Listing Fee</h2>
+            <p className="text-sm text-muted-foreground text-center mb-6 max-w-sm">
+              Pay a small fee to list your item. This helps us ensure only serious sellers are on the platform and prevents off-platform scams.
+            </p>
+            <div className="w-full max-w-sm rounded-2xl border border-border p-5 mb-8">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-muted-foreground">Listing Fee</span>
+                <span className="font-semibold">₦500</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-muted-foreground">Wallet Balance</span>
+                <span className="font-semibold text-success">₦45,000</span>
+              </div>
+            </div>
+            <div className="w-full max-w-sm flex gap-3">
+              <Button onClick={() => setStep("form")} variant="soft" className="flex-1">Back</Button>
+              <Button onClick={submit} disabled={loading} className="flex-[2]">
+                {loading ? <><Loader2 className="h-4 w-4 animate-spin" /> Processing…</> : <>Pay ₦500 & List</>}
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {step === "done" && (
           <div className="py-12 text-center animate-snap-in">
             <div className="mx-auto h-16 w-16 rounded-full bg-success flex items-center justify-center">
               <BadgeCheck className="h-8 w-8 text-success-foreground" />

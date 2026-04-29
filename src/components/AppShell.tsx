@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import {
   Home, Wallet, Store, Building2, MessageCircleMore,
-  GraduationCap, ShieldCheck, Menu, Bell, Search, LogOut, ChevronRight, ShoppingBag,
+  GraduationCap, ShieldCheck, Menu, Bell, Search, LogOut, ChevronRight, ShoppingBag, PiggyBank, Briefcase, Heart, HeartHandshake
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { Logo } from "@/components/Logo";
@@ -15,10 +15,20 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { to: "/app", label: "Home", icon: Home, end: true },
   { to: "/app/finance", label: "Finance", icon: Wallet },
-  { to: "/app/marketplace", label: "Marketplace", icon: Store },
+  { to: "/app/savings", label: "Savings", icon: PiggyBank },
+  { 
+    to: "/app/marketplace", label: "Marketplace", icon: Store,
+    sub: [
+      { to: "/app/marketplace/storefront", label: "Storefront" },
+      { to: "/app/marketplace/declutter", label: "Declutter" }
+    ]
+  },
   { to: "/app/accommodation", label: "Accommodation", icon: Building2 },
   { to: "/app/community", label: "Community", icon: MessageCircleMore },
-  { to: "/app/academy", label: "Academy", icon: GraduationCap },
+  { to: "/app/jobs", label: "Job Board", icon: Briefcase },
+  { to: "/app/counselling", label: "Counselling", icon: Heart },
+  { to: "/app/welfare", label: "Welfare", icon: HeartHandshake },
+  { to: "/app/academy", label: "Kopawe Academy", icon: GraduationCap },
 ];
 
 const BOTTOM_NAV = [
@@ -26,6 +36,7 @@ const BOTTOM_NAV = [
   { to: "/app/community", label: "Feed", icon: MessageCircleMore },
   { to: "/app/marketplace", label: "Market", icon: Store },
   { to: "/app/finance", label: "Wallet", icon: Wallet },
+  { to: "/app/savings", label: "Save", icon: PiggyBank },
 ];
 
 const Sidebar = () => {
@@ -37,17 +48,32 @@ const Sidebar = () => {
       </div>
 
       <nav className="flex-1 px-3 space-y-1">
-        {NAV.map(({ to, label, icon: Icon, end }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={end}
-            className="group flex items-center gap-3 rounded-pill px-4 py-2.5 text-sm font-medium text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors"
-            activeClassName="!bg-accent !text-accent-foreground shadow-sm"
-          >
-            <Icon className="h-4 w-4" />
-            <span>{label}</span>
-          </NavLink>
+        {NAV.map(({ to, label, icon: Icon, end, sub }) => (
+          <div key={to}>
+            <NavLink
+              to={to}
+              end={end}
+              className="group flex items-center gap-3 rounded-pill px-4 py-2.5 text-sm font-medium text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors"
+              activeClassName={!sub ? "!bg-accent !text-accent-foreground shadow-sm" : ""}
+            >
+              <Icon className="h-4 w-4" />
+              <span>{label}</span>
+            </NavLink>
+            {sub && (
+              <div className="ml-9 mt-1 flex flex-col gap-1 border-l border-sidebar-border pl-2">
+                {sub.map((s) => (
+                  <NavLink
+                    key={s.to}
+                    to={s.to}
+                    className="rounded-pill px-3 py-1.5 text-xs font-medium text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent/50 transition-colors"
+                    activeClassName="!text-accent !font-bold"
+                  >
+                    {s.label}
+                  </NavLink>
+                ))}
+              </div>
+            )}
+          </div>
         ))}
 
         {member?.isAdmin && (
@@ -103,17 +129,32 @@ const MobileSidebar = () => {
           <Logo variant="light" />
         </div>
         <nav className="px-3 space-y-1">
-          {NAV.map(({ to, label, icon: Icon, end }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={end}
-              className="flex items-center gap-3 rounded-pill px-4 py-2.5 text-sm font-medium text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-              activeClassName="!bg-accent !text-accent-foreground"
-            >
-              <Icon className="h-4 w-4" />
-              {label}
-            </NavLink>
+          {NAV.map(({ to, label, icon: Icon, end, sub }) => (
+            <div key={to}>
+              <NavLink
+                to={to}
+                end={end}
+                className="flex items-center gap-3 rounded-pill px-4 py-2.5 text-sm font-medium text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                activeClassName={!sub ? "!bg-accent !text-accent-foreground" : ""}
+              >
+                <Icon className="h-4 w-4" />
+                {label}
+              </NavLink>
+              {sub && (
+                <div className="ml-9 mt-1 flex flex-col gap-1 border-l border-sidebar-border pl-2">
+                  {sub.map((s) => (
+                    <NavLink
+                      key={s.to}
+                      to={s.to}
+                      className="rounded-pill px-3 py-1.5 text-xs font-medium text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent/50"
+                      activeClassName="!text-accent !font-bold"
+                    >
+                      {s.label}
+                    </NavLink>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
           {member?.isAdmin && (
             <NavLink

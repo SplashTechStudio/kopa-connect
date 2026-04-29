@@ -55,7 +55,7 @@ const RoommateDetail = () => {
             </div>
 
             <div className="mt-6 grid grid-cols-3 gap-3">
-              <Stat label="Budget" value={formatNaira(r.budget)} />
+              <Stat label="Rent" value={formatNaira(r.budget)} />
               <Stat label="Cleanliness" value={`${r.cleanliness}/10`} />
               <Stat label="Social" value={`${r.socialBattery}/10`} />
             </div>
@@ -76,13 +76,13 @@ const RoommateDetail = () => {
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-3xl bg-surface border border-border p-6">
-              <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-muted-foreground">Habits</div>
+              <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-muted-foreground">Details</div>
               <div className="flex flex-wrap gap-2 mt-3">
                 {r.habits.map((h) => <span key={h} className="rounded-pill bg-surface-alt px-3 py-1.5 text-xs font-semibold">{h}</span>)}
               </div>
             </div>
             <div className="rounded-3xl bg-surface border border-border p-6 space-y-3">
-              <Row icon={Wallet} label="Budget" value={formatNaira(r.budget)} />
+              <Row icon={Wallet} label="Rent" value={formatNaira(r.budget)} />
               <Row icon={Calendar} label="Moves in" value={r.movesIn} />
               <Row icon={MessageCircle} label="Smokes" value={r.smokes ? "Yes" : "No"} />
             </div>

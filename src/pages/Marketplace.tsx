@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AppShell } from "@/components/AppShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,25 +9,45 @@ import { Filter, Lock, Search, ShoppingBag, Store } from "lucide-react";
 import { ListItemSheet } from "@/components/sheets/ListItemSheet";
 import { useCart } from "@/context/CartContext";
 import { toast } from "sonner";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
-const TABS = ["All", "Declutter", "Bundle", "Marketplace"];
+// Marketplace types: Declutter and Marketplace.
+// Storefront displays "Marketplace" items.
+// Declutter displays "Declutter" items.
 
 const Marketplace = () => {
-  const [tab, setTab] = useState("All");
+  const location = useLocation();
+  const isDeclutter = location.pathname.includes("declutter");
+  const pageTitle = isDeclutter ? "Declutter" : "Storefront";
   const [q, setQ] = useState("");
   const [listOpen, setListOpen] = useState(false);
   const { add } = useCart();
-  const items = DEMO_PRODUCTS.filter((p) => (tab === "All" || p.category === tab) && p.title.toLowerCase().includes(q.toLowerCase()));
+  
+  // Filter items based on page context (Declutter vs Storefront)
+  const items = DEMO_PRODUCTS.filter((p) => {
+    const matchesContext = isDeclutter ? p.category === "Declutter" : p.category === "Marketplace";
+    const matchesSearch = p.title.toLowerCase().includes(q.toLowerCase());
+    return matchesContext && matchesSearch;
+  });
 
   return (
-    <AppShell title="Marketplace">
+    <AppShell title={pageTitle}>
       <ListItemSheet open={listOpen} onOpenChange={setListOpen} />
 
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-        <div>
-          <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-muted-foreground">Buy from corpers, sell before POP</div>
-          <h1 className="font-display text-3xl font-semibold mt-1">Marketplace & Declutter</h1>
-        </div>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.12em] font-semibold text-muted-foreground cursor-help">{isDeclutter ? "Sell before POP" : "Buy from verified corpers"}</div>
+                <h1 className="font-display text-3xl font-semibold mt-1 cursor-help">{pageTitle}</h1>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{isDeclutter ? "Post items you no longer need for other corpers to buy." : "Shop quality items from fellow corpers at great prices."}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <div className="flex gap-2">
           <div className="relative flex-1 lg:w-72">
             <Search className="h-4 w-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -37,13 +57,7 @@ const Marketplace = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 mt-5">
-        {TABS.map((t) => (
-          <button key={t} onClick={() => setTab(t)} className={`rounded-pill px-4 py-1.5 text-xs font-semibold border transition-colors ${tab === t ? "bg-primary text-primary-foreground border-primary" : "bg-surface border-border hover:bg-surface-alt"}`}>
-            {t}
-          </button>
-        ))}
-      </div>
+      {/* Tabs removed as per request for direct view */}
 
       {items.length === 0 ? (
         <div className="rounded-3xl bg-surface border border-border p-12 text-center mt-6">
@@ -75,10 +89,19 @@ const Marketplace = () => {
 
       <div className="mt-8 rounded-3xl bg-primary text-primary-foreground p-6 lg:p-8 flex flex-col lg:flex-row gap-5 items-start lg:items-center">
         <Lock className="h-8 w-8 text-accent" />
-        <div className="flex-1">
-          <div className="font-display text-xl font-semibold">Every purchase is held in Safetrade.</div>
-          <div className="text-primary-foreground/70 text-sm mt-1">Your money is released to the seller only after you confirm delivery.</div>
-        </div>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="flex-1 cursor-help">
+                <div className="font-display text-xl font-semibold">Every purchase is held in Safetrade.</div>
+                <div className="text-primary-foreground/70 text-sm mt-1">Your money is released to the seller only after you confirm delivery.</div>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Our secure escrow service ensures you get what you paid for.</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <Button variant="hero">Learn more</Button>
       </div>
     </AppShell>

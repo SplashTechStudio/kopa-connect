@@ -20,10 +20,10 @@ const Landing = () => {
           </nav>
           <div className="flex items-center gap-2">
             <Button asChild variant="ghost" size="sm">
-              <Link to="/verify">Sign in</Link>
+              <Link to="/login">Sign in</Link>
             </Button>
             <Button asChild size="sm">
-              <Link to="/verify">Verify ID <ArrowRight className="ml-1" /></Link>
+              <Link to="/signup">Verify ID <ArrowRight className="ml-1" /></Link>
             </Button>
           </div>
         </div>
@@ -37,7 +37,7 @@ const Landing = () => {
           <div className="lg:col-span-7 space-y-8">
             <div className="inline-flex items-center gap-2 rounded-pill bg-white/10 backdrop-blur px-3 py-1.5 text-xs font-semibold">
               <Sparkles className="h-3.5 w-3.5 text-accent" />
-              Built with Qreva · Proposed digital infrastructure for NYSC
+              Built by Qreva - Digital infrastructure for NYSC
             </div>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] text-balance">
               Your service year,<br />
@@ -50,7 +50,7 @@ const Landing = () => {
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <Button asChild variant="hero" size="lg">
-                <Link to="/verify">Verify your NYSC ID <ArrowRight className="ml-1" /></Link>
+                <Link to="/signup">Verify your NYSC ID <ArrowRight className="ml-1" /></Link>
               </Button>
               <Button asChild variant="ghost" size="lg" className="text-primary-foreground hover:bg-white/10">
                 <Link to="/app">Explore the app</Link>
@@ -239,7 +239,7 @@ const Landing = () => {
             One scan with your call-up number. Less than a minute. Free, forever.
           </p>
           <Button asChild size="xl" className="mt-10 bg-primary text-primary-foreground hover:bg-primary-hover">
-            <Link to="/verify">Get started <ArrowRight /></Link>
+            <Link to="/signup">Get started <ArrowRight /></Link>
           </Button>
         </div>
       </section>
@@ -265,7 +265,7 @@ const MODULES = [
   { icon: Store, title: "Marketplace & Declutter", body: "Buy and sell with other corpers, then resell on POP.", bullets: ["“Full Room Setup” bundles", "Local & national vendors", "Last-mile logistics"] },
   { icon: Lock, title: "Safetrade Escrow", body: "Every transaction held until both sides confirm.", bullets: ["Rentals, marketplace, services", "One-tap dispute", "CBN-aligned controls"] },
   { icon: MessageCircleMore, title: "Community & News", body: "State-based feeds, CDS chats, threads, polls and devotionals.", bullets: ["Official NYSC announcements", "Reddit-style threads", "Daily devotionals"] },
-  { icon: GraduationCap, title: "Career & Kopa Academy", body: "Internships, jobs, courses and counselling for after service.", bullets: ["Skill marketplace", "Verified employers", "Mental-health support"] },
+  { icon: GraduationCap, title: "Career & Kopawe Academy", body: "Internships, jobs, courses and counselling for after service.", bullets: ["Skill marketplace", "Verified employers", "Mental-health support"] },
 ];
 
 const NYSC_GAINS = [
