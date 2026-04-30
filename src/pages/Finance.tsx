@@ -60,7 +60,7 @@ const Finance = () => {
             <div className="font-display text-5xl font-bold tabular mt-2">{formatNaira(DEMO_WALLET.balance)}</div>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 mt-7">
               <Quick onClick={() => setTransfer(true)} icon={Send} label="Transfer" />
-              <Quick onClick={() => setLoan(true)} icon={Sparkles} label="Get funded" highlight />
+              <Quick onClick={() => setLoan(true)} icon={Sparkles} label="Allawee Advance" highlight />
               <Quick onClick={() => setBill(true)} icon={Wallet} label="Pay bill" />
               <Quick onClick={() => setAirtime(true)} icon={Smartphone} label="Airtime" />
               <Quick onClick={() => setData(true)} icon={Smartphone} label="Data" />

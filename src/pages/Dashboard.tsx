@@ -65,7 +65,7 @@ const Dashboard = () => {
 
             <div className="mt-7 grid grid-cols-2 sm:grid-cols-5 gap-2.5">
               <QuickAction onClick={() => setTransferOpen(true)} icon={Send} label="Transfer" />
-              <QuickAction onClick={() => setLoanOpen(true)} icon={Sparkles} label="Get funded" highlight />
+              <QuickAction onClick={() => setLoanOpen(true)} icon={Sparkles} label="Allawee Advance" highlight />
               <QuickAction onClick={() => setBillOpen(true)} icon={Wallet} label="Pay bill" />
               <QuickAction onClick={() => setAirtimeOpen(true)} icon={Smartphone} label="Airtime" />
               <QuickAction onClick={() => setDataOpen(true)} icon={Smartphone} label="Data" />
@@ -155,16 +155,16 @@ const Dashboard = () => {
         <section className="lg:col-span-8 rounded-3xl bg-surface border border-border p-6">
           <div className="flex items-center justify-between">
             <div>
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <h2 className="font-display text-xl font-semibold mt-1 cursor-help">Latest announcements</h2>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Official updates and news from NYSC headquarters and state offices.</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <h2 className="font-display text-xl font-semibold mt-1 cursor-help">Latest announcements</h2>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Official updates and news from NYSC headquarters and state offices.</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
             <Button asChild variant="ghost" size="sm">
               <Link to="/app/community">View all <ArrowRight /></Link>
