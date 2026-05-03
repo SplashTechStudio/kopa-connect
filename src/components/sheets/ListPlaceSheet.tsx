@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { BadgeCheck, Building2, Image as ImageIcon, Loader2, ShieldCheck } from "lucide-react";
 import { ACCOMMODATION_TYPES, NIGERIAN_STATES } from "@/lib/demo-data";
 import { toast } from "sonner";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const AMENITIES = ["Prepaid meter", "Borehole", "WiFi", "AC", "Generator", "Tiled floor", "Wardrobe", "Security", "Furnished"];
 
@@ -66,9 +67,16 @@ export const ListPlaceSheet = ({ open, onOpenChange }: { open: boolean; onOpenCh
 
               <div className="grid sm:grid-cols-2 gap-3">
                 <Field label="Type">
-                  <select value={type} onChange={(e) => setType(e.target.value)} className="w-full h-11 rounded-xl border border-input bg-background px-3 text-sm">
-                    {ACCOMMODATION_TYPES.map((c) => <option key={c}>{c}</option>)}
-                  </select>
+                  <Select value={type} onValueChange={setType}>
+                    <SelectTrigger className="h-11 rounded-xl text-sm">
+                      <SelectValue placeholder="Type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {ACCOMMODATION_TYPES.map((c) => (
+                        <SelectItem key={c} value={c}>{c}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </Field>
                 <Field label="Annual rent (₦)">
                   <Input type="number" value={price} onChange={(e) => setPrice(e.target.value === "" ? "" : Number(e.target.value))} placeholder="220000" className="h-11 rounded-xl tabular" />
@@ -77,9 +85,16 @@ export const ListPlaceSheet = ({ open, onOpenChange }: { open: boolean; onOpenCh
 
               <div className="grid sm:grid-cols-2 gap-3">
                 <Field label="State">
-                  <select value={state} onChange={(e) => setState(e.target.value)} className="w-full h-11 rounded-xl border border-input bg-background px-3 text-sm">
-                    {NIGERIAN_STATES.map((c) => <option key={c}>{c}</option>)}
-                  </select>
+                  <Select value={state} onValueChange={setState}>
+                    <SelectTrigger className="h-11 rounded-xl text-sm">
+                      <SelectValue placeholder="State" />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-[300px]">
+                      {NIGERIAN_STATES.map((c) => (
+                        <SelectItem key={c} value={c}>{c}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </Field>
                 <Field label="LGA"><Input value={lga} onChange={(e) => setLga(e.target.value)} placeholder="e.g. Ikeja" className="h-11 rounded-xl" /></Field>
               </div>

@@ -6,6 +6,7 @@ import { Logo } from "@/components/Logo";
 import { Loader2, ShieldCheck, BadgeCheck, ArrowRight, User, MapPin, Building2, Wallet } from "lucide-react";
 import { NIGERIAN_STATES } from "@/lib/demo-data";
 import { toast } from "sonner";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -150,13 +151,19 @@ export default function Signup() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">State of Service</label>
-                  <select 
+                  <Select 
                     value={formData.state}
-                    onChange={e => setFormData({...formData, state: e.target.value})}
-                    className="w-full h-12 rounded-xl border border-input bg-background px-3"
+                    onValueChange={value => setFormData({...formData, state: value})}
                   >
-                    {NIGERIAN_STATES.map(s => <option key={s} value={s}>{s}</option>)}
-                  </select>
+                    <SelectTrigger className="h-12 rounded-xl">
+                      <SelectValue placeholder="Select state" />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-[300px]">
+                      {NIGERIAN_STATES.map(s => (
+                        <SelectItem key={s} value={s}>{s}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-semibold">Current LGA</label>

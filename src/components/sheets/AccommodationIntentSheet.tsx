@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { BadgeCheck, Building2, UserPlus, Search, Loader2, ShieldCheck, DollarSign, MapPin } from "lucide-react";
 import { NIGERIAN_STATES } from "@/lib/demo-data";
 import { toast } from "sonner";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export type AccommodationIntent = 
   | "looking_for_place" 
@@ -98,9 +99,16 @@ export const AccommodationIntentSheet = ({ open, onOpenChange, intent }: Props) 
                   </div>
                 </Field>
                 <Field label="State">
-                  <select value={state} onChange={(e) => setState(e.target.value)} className="w-full h-11 rounded-xl border border-input bg-background px-3 text-sm">
-                    {NIGERIAN_STATES.map((c) => <option key={c}>{c}</option>)}
-                  </select>
+                  <Select value={state} onValueChange={setState}>
+                    <SelectTrigger className="h-11 rounded-xl text-sm">
+                      <SelectValue placeholder="State" />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-[300px]">
+                      {NIGERIAN_STATES.map((c) => (
+                        <SelectItem key={c} value={c}>{c}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </Field>
               </div>
 
