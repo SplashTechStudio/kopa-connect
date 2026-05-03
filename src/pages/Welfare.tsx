@@ -162,7 +162,7 @@ const Welfare = () => {
                 </li>
                 <li className="flex gap-3">
                   <div className="h-6 w-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold shrink-0">3</div>
-                  <p className="text-sm">Once approved, funds or resources are disbursed directly to your Kopawe wallet or local PPA.</p>
+                  <p className="text-sm">Once approved, funds or resources are disbursed directly to your CorperOne wallet or local PPA.</p>
                 </li>
               </ul>
             </div>

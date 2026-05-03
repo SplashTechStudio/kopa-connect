@@ -10,7 +10,7 @@ interface MemberContextValue {
 }
 
 const MemberContext = createContext<MemberContextValue | null>(null);
-const STORAGE_KEY = "kopa-we:member";
+const STORAGE_KEY = "corper-one:member";
 
 export const MemberProvider = ({ children }: { children: ReactNode }) => {
   const [member, setMemberState] = useState<Member | null>(null);

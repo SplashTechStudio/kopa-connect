@@ -156,7 +156,7 @@ export const SavingsDetailSheet = ({ open, onOpenChange, plan }: { open: boolean
             <div className="rounded-2xl bg-primary/5 p-5 flex items-start gap-4">
               <ShieldCheck className="h-6 w-6 text-primary shrink-0" />
               <div>
-                <div className="font-semibold text-sm">Protected by Kopawe Safetrade</div>
+                <div className="font-semibold text-sm">Protected by CorperOne Safetrade</div>
                 <p className="text-xs text-muted-foreground mt-1">Your savings are held in an NDIC-insured trust account. Interest is calculated daily and paid monthly.</p>
               </div>
             </div>

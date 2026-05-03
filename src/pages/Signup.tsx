@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Logo } from "@/components/Logo";
 import { Loader2, ShieldCheck, BadgeCheck, ArrowRight, User, MapPin, Building2, Wallet } from "lucide-react";
 import { NIGERIAN_STATES } from "@/lib/demo-data";
 import { toast } from "sonner";
@@ -47,7 +48,7 @@ export default function Signup() {
       setLoading(true);
       await new Promise(r => setTimeout(r, 1500));
       setLoading(false);
-      toast.success("Registration complete! Welcome to Kopawe.");
+      toast.success("Registration complete! Welcome to CorperOne.");
       navigate("/app");
     }
   };
@@ -58,7 +59,7 @@ export default function Signup() {
       <div className="hidden md:flex md:w-[40%] bg-primary p-12 flex-col justify-between relative overflow-hidden text-primary-foreground">
         <div className="absolute top-0 right-0 p-20 bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="relative z-10">
-          <div className="font-display text-3xl font-black tracking-tight">KOPAWE</div>
+          <Logo variant="light" className="scale-110" />
           <div className="mt-20">
             <h1 className="text-5xl font-display font-bold leading-tight">Digital infrastructure for the modern Corper.</h1>
             <p className="mt-6 text-primary-foreground/70 text-lg max-w-sm">Banking, Community, and Career growth built exclusively for you.</p>
@@ -219,7 +220,7 @@ export default function Signup() {
               <BadgeCheck className="h-6 w-6 text-success shrink-0" />
               <div>
                 <div className="font-semibold text-sm">Escrow Protection Active</div>
-                <p className="text-xs text-muted-foreground mt-1">Your data is stored securely. Kopawe is a CBN licensed platform.</p>
+                <p className="text-xs text-muted-foreground mt-1">Your data is stored securely. CorperOne is a CBN licensed platform.</p>
               </div>
             </div>
 

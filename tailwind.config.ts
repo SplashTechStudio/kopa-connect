@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Clash Display"', '"Plus Jakarta Sans"', "system-ui", "sans-serif"],
-        sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
+        display: ['"Poppins"', "system-ui", "sans-serif"],
+        sans: ['"Poppins"', "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

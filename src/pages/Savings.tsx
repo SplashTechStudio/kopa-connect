@@ -165,7 +165,7 @@ const Savings = () => {
       <div className="mt-12 grid md:grid-cols-2 gap-8">
         <section>
           <h2 className="font-display text-xl font-semibold flex items-center gap-2 mb-4">
-            <Info className="h-5 w-5 text-primary" /> Why save on Kopawe?
+            <Info className="h-5 w-5 text-primary" /> Why save on CorperOne?
           </h2>
           <div className="space-y-4">
             <div className="flex gap-3">

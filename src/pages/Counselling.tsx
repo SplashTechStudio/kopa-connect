@@ -16,7 +16,7 @@ const Counselling = () => {
         <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-accent/15 blur-3xl" />
         <div className="relative max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-pill bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.1em]">
-            <Heart className="h-3 w-3 text-accent" /> Kopawe Wellness
+            <Heart className="h-3 w-3 text-accent" /> CorperOne Wellness
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-semibold mt-4 text-balance">Safe space for every corper.</h1>
           <p className="text-primary-foreground/70 mt-3">Professional counselling for mental health, career guidance, and relationships. 100% confidential and free for active corpers.</p>
@@ -73,7 +73,7 @@ const Counselling = () => {
               <div className="p-4 rounded-2xl bg-red-50 border border-red-100">
                 <div className="font-semibold text-red-700 text-sm">Crisis Hotline</div>
                 <div className="text-xs text-red-600 mt-1">Available 24/7 for urgent mental health support.</div>
-                <Button className="w-full mt-3 bg-red-600 hover:bg-red-700 text-white border-none">Call: 0800-KOPA-HELP</Button>
+                <Button className="w-full mt-3 bg-red-600 hover:bg-red-700 text-white border-none">Call: 0800-CORPER-HELP</Button>
               </div>
               
               <div className="p-4 rounded-2xl bg-surface-alt border border-border">

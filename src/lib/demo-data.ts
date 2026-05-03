@@ -86,12 +86,12 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
   { id: "p2", title: "Standing fan + extension", price: 9_500, seller: "Ngozi U.", sellerRating: 4.6, sellerSales: 7, state: "Lagos", lga: "Lekki", category: "Declutter", condition: "Used — good", img: "🌀", gallery: ["🌀", "🔌"], inStock: 1, postedAt: "5 days ago", description: "Powerful standing fan, 16-inch blades, three speed settings. Comes with a 4-yard extension. Reason for sale: POP next month, won't be needing it back home." },
   { id: "p4", title: "Gas cylinder 6kg", price: 14_000, seller: "Bola K.", sellerRating: 4.7, sellerSales: 9, state: "Oyo", lga: "Ibadan North", category: "Declutter", condition: "Used — good", img: "🔥", gallery: ["🔥", "🍳"], inStock: 1, postedAt: "1 week ago", description: "6kg cylinder. Just refilled — comes with about 5kg of gas in it. Hose and burner included. Selling cheap because I'm leaving Ibadan after POP." },
   { id: "p5", title: "Reading lamp (rechargeable)", price: 4_200, seller: "Chuka E.", sellerRating: 5.0, sellerSales: 3, state: "Imo", lga: "Owerri Municipal", category: "Declutter", condition: "Used — like new", img: "💡", gallery: ["💡"], inStock: 1, postedAt: "3 days ago", description: "Saved my life during NEPA outages. Battery still holds 6+ hours on a full charge. USB-C charging." },
-  { id: "p6", title: "Corper Hoodie • limited", price: 6_500, seller: "Kopa Merch", sellerRating: 4.9, sellerSales: 540, state: "Nationwide", lga: "Ships nationwide", category: "Marketplace", condition: "New", img: "👕", gallery: ["👕", "🧥"], inStock: 120, postedAt: "Restocked today", description: "Heavyweight 320gsm cotton hoodie with embroidered Corper crest. Sizes S–XXL. Ships to all 36 states + FCT in 3–5 days." },
-  { id: "p7", title: "Canvas Sneakers (White)", price: 8_500, seller: "Kopa Merch", sellerRating: 4.9, sellerSales: 210, state: "Nationwide", lga: "Ships nationwide", category: "Marketplace", condition: "New", img: "👟", gallery: ["👟"], inStock: 45, postedAt: "Yesterday", description: "Perfect for CDS and orientation camp. Durable canvas material with rubber soles. Available in sizes 38–45." },
+  { id: "p6", title: "Corper Hoodie • limited", price: 6_500, seller: "CorperOne Merch", sellerRating: 4.9, sellerSales: 540, state: "Nationwide", lga: "Ships nationwide", category: "Marketplace", condition: "New", img: "👕", gallery: ["👕", "🧥"], inStock: 120, postedAt: "Restocked today", description: "Heavyweight 320gsm cotton hoodie with embroidered Corper crest. Sizes S–XXL. Ships to all 36 states + FCT in 3–5 days." },
+  { id: "p7", title: "Canvas Sneakers (White)", price: 8_500, seller: "CorperOne Merch", sellerRating: 4.9, sellerSales: 210, state: "Nationwide", lga: "Ships nationwide", category: "Marketplace", condition: "New", img: "👟", gallery: ["👟"], inStock: 45, postedAt: "Yesterday", description: "Perfect for CDS and orientation camp. Durable canvas material with rubber soles. Available in sizes 38–45." },
   { id: "p8", title: "Logitech Wireless Mouse", price: 12_000, seller: "Femi A.", sellerRating: 4.8, sellerSales: 2, state: "Lagos", lga: "Lekki", category: "Declutter", condition: "Used — like new", img: "🖱️", gallery: ["🖱️"], inStock: 1, postedAt: "4 hours ago", description: "Logitech M185 wireless mouse. Works perfectly, comes with the USB dongle. Selling because I upgraded to a MX Master." },
   { id: "p9", title: "Indomie Carton (70g x 40)", price: 11_500, seller: "Wholesale Corp", sellerRating: 4.5, sellerSales: 1200, state: "Nationwide", lga: "Ships nationwide", category: "Marketplace", condition: "New", img: "🍜", gallery: ["🍜"], inStock: 50, postedAt: "10 mins ago", description: "Bulk indomie for the smart corper. Save money by buying in bulk. Instant delivery within major state capitals." },
   { id: "p10", title: "Used Laptop Stand", price: 5_000, seller: "Chiamaka O.", sellerRating: 4.9, sellerSales: 1, state: "Lagos", lga: "Ikeja", category: "Declutter", condition: "Used — good", img: "💻", gallery: ["💻"], inStock: 1, postedAt: "Yesterday", description: "Aluminum laptop stand, adjustable height. Very sturdy. Selling as I'm moving and reducing my luggage." },
-  { id: "p11", title: "Electric Kettle (New)", price: 12_500, seller: "Kopa Home", sellerRating: 4.7, sellerSales: 89, state: "Lagos", lga: "Yaba", category: "Marketplace", condition: "New", img: "🫖", gallery: ["🫖"], inStock: 20, postedAt: "2 hours ago", description: "Fast boiling 1.8L electric kettle. Durable stainless steel design. Perfect for the hostel." },
+  { id: "p11", title: "Electric Kettle (New)", price: 12_500, seller: "CorperOne Home", sellerRating: 4.7, sellerSales: 89, state: "Lagos", lga: "Yaba", category: "Marketplace", condition: "New", img: "🫖", gallery: ["🫖"], inStock: 20, postedAt: "2 hours ago", description: "Fast boiling 1.8L electric kettle. Durable stainless steel design. Perfect for the hostel." },
   { id: "p12", title: "Study Desk & Chair", price: 35_000, seller: "Tobi L.", sellerRating: 4.6, sellerSales: 3, state: "Oyo", lga: "Ibadan", category: "Declutter", condition: "Used — like new", img: "🪑", gallery: ["🪑", "📑"], inStock: 1, postedAt: "3 days ago", description: "Compact study desk with an ergonomic chair. Used for only 6 months. Great for remote work corpers." },
   { id: "p13", title: "Solar Power Bank (50,000mAh)", price: 22_000, seller: "Green Energy Corp", sellerRating: 4.9, sellerSales: 156, state: "Nationwide", lga: "Ships nationwide", category: "Marketplace", condition: "New", img: "🔋", gallery: ["🔋", "☀️"], inStock: 50, postedAt: "1 hour ago", description: "High-capacity solar power bank. Charges up to 4 devices simultaneously. Built-in LED flashlight and compass. Perfect for off-grid PPAs." },
 ];
@@ -180,7 +180,7 @@ export const DEMO_FEED = [
   },
   {
     id: "f3",
-    author: "Kopa Devotional",
+    author: "CorperOne Devotional",
     handle: "@devotional",
     verified: true,
     official: false,
@@ -206,8 +206,8 @@ export const DEMO_FEED = [
   },
   {
     id: "f5",
-    author: "Kopa Voices",
-    handle: "@kopavoices",
+    author: "CorperOne Voices",
+    handle: "@corperonevoices",
     verified: true,
     official: false,
     state: "Nationwide",
@@ -280,7 +280,7 @@ export const DEMO_COURSES: DemoCourse[] = [
   {
     id: "c1",
     title: "Frontend with React (8 weeks)",
-    instructor: "Kopawe Academy",
+    instructor: "CorperOne Academy",
     level: "Beginner",
     students: 1_240,
     duration: "8 weeks · ~6 hrs/week",
@@ -367,7 +367,7 @@ export const DEMO_COURSES: DemoCourse[] = [
   {
     id: "c5",
     title: "Content Creation Mastery",
-    instructor: "Kopawe Studios",
+    instructor: "CorperOne Studios",
     level: "Beginner",
     students: 1840,
     duration: "4 weeks · ~3 hrs/week",

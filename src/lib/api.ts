@@ -1,8 +1,8 @@
-// Lightweight API client for the Kopa We backend.
+// Lightweight API client for the CorperOne backend.
 // Uses fetch + a configurable base URL. Falls back to mock data for offline demos.
 
 export const API_BASE_URL =
-  (import.meta.env.VITE_KOPA_API_URL as string | undefined) ?? "/api";
+  (import.meta.env.VITE_CORPERONE_API_URL as string | undefined) ?? "/api";
 
 export class ApiError extends Error {
   constructor(public status: number, message: string, public body?: unknown) {

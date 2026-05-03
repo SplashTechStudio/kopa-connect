@@ -132,7 +132,7 @@ const Dashboard = () => {
         <BentoCard
           to="/app/academy"
           icon={GraduationCap}
-          title="Kopawe Academy"
+          title="CorperOne Academy"
           tagline="Skill up while serving. Land work after POP."
           color="bg-surface"
         />

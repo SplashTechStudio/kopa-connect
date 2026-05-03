@@ -44,7 +44,7 @@ const Landing = () => {
               <span className="text-accent">unlocked.</span>
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-xl text-pretty">
-              Kopa We is the official-grade super-app for every Nigerian Corps Member.
+              CorperOne is the official-grade super-app for every Nigerian Corps Member.
               Verified identity, instant Allawee Advance, accommodation, marketplace,
               and a state-by-state community — in one place.
             </p>
@@ -247,7 +247,7 @@ const Landing = () => {
       <footer className="border-t border-border bg-background">
         <div className="container py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <Logo />
-          <div>© {new Date().getFullYear()} Kopa We · A Qreva product</div>
+          <div>© {new Date().getFullYear()} CorperOne · A Qreva product</div>
           <div className="flex gap-5">
             <a href="#" className="hover:text-foreground">Privacy</a>
             <a href="#" className="hover:text-foreground">Terms</a>
@@ -265,7 +265,7 @@ const MODULES = [
   { icon: Store, title: "Marketplace & Declutter", body: "Buy and sell with other corpers, then resell on POP.", bullets: ["“Full Room Setup” bundles", "Local & national vendors", "Last-mile logistics"] },
   { icon: Lock, title: "Safetrade Escrow", body: "Every transaction held until both sides confirm.", bullets: ["Rentals, marketplace, services", "One-tap dispute", "CBN-aligned controls"] },
   { icon: MessageCircleMore, title: "Community & News", body: "State-based feeds, CDS chats, threads, polls and devotionals.", bullets: ["Official NYSC announcements", "Reddit-style threads", "Daily devotionals"] },
-  { icon: GraduationCap, title: "Career & Kopawe Academy", body: "Internships, jobs, courses and counselling for after service.", bullets: ["Skill marketplace", "Verified employers", "Mental-health support"] },
+  { icon: GraduationCap, title: "Career & CorperOne Academy", body: "Internships, jobs, courses and counselling for after service.", bullets: ["Skill marketplace", "Verified employers", "Mental-health support"] },
 ];
 
 const NYSC_GAINS = [

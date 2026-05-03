@@ -76,7 +76,7 @@ export const SavingsGroupDetailSheet = ({ open, onOpenChange, group }: { open: b
                 <ShieldCheck className="h-6 w-6 text-primary shrink-0" />
                 <div>
                   <div className="font-semibold text-sm">Verified & Protected</div>
-                  <p className="text-xs text-muted-foreground mt-1">This group is verified by Kopawe. All contributions are automatically managed by our secure escrow system.</p>
+                  <p className="text-xs text-muted-foreground mt-1">This group is verified by CorperOne. All contributions are automatically managed by our secure escrow system.</p>
                 </div>
               </div>
 

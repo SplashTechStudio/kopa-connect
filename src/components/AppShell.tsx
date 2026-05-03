@@ -28,7 +28,7 @@ const NAV = [
   { to: "/app/jobs", label: "Job Board", icon: Briefcase },
   { to: "/app/counselling", label: "Counselling", icon: Heart },
   { to: "/app/welfare", label: "Welfare", icon: HeartHandshake },
-  { to: "/app/academy", label: "Kopawe Academy", icon: GraduationCap },
+  { to: "/app/academy", label: "CorperOne Academy", icon: GraduationCap },
 ];
 
 const BOTTOM_NAV = [
@@ -191,7 +191,7 @@ const TopBar = ({ title }: { title?: string }) => {
           className="hidden sm:inline-flex items-center gap-2 h-10 px-4 rounded-pill border border-border bg-surface text-sm text-muted-foreground hover:bg-surface-alt transition-colors"
         >
           <Search className="h-4 w-4" />
-          <span>Search Kopa We…</span>
+          <span>Search CorperOne…</span>
           <kbd className="ml-2 hidden md:inline-flex h-5 items-center rounded border border-border bg-background px-1.5 text-[10px] font-medium text-muted-foreground">⌘K</kbd>
         </button>
         <Button variant="ghost" size="icon" className="relative" onClick={() => navigate("/app/cart")} aria-label="Cart">

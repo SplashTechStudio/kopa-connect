@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Logo } from "@/components/Logo";
 import { Loader2, ArrowRight, Lock, Mail } from "lucide-react";
 import { toast } from "sonner";
 
@@ -27,8 +28,8 @@ export default function Login() {
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
       <div className="w-full max-w-md space-y-8">
-        <div className="text-center">
-          <div className="font-display text-4xl font-black tracking-tighter text-primary">KOPAWE</div>
+        <div className="text-center flex flex-col items-center">
+          <Logo size="xl" className="mb-8" />
           <h2 className="mt-6 text-3xl font-display font-bold">Welcome back</h2>
           <p className="mt-2 text-sm text-muted-foreground">Log in to manage your NYSC service year.</p>
         </div>

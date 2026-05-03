@@ -132,7 +132,7 @@ const Verify = () => {
               </div>
               <h2 className="font-display text-3xl font-semibold mt-5">Verified Corps Member</h2>
               <p className="text-primary-foreground/70 mt-2">
-                Your Digital Corps ID has been issued. You can now use Kopa We.
+                Your Digital Corps ID has been issued. You can now use CorperOne.
               </p>
               <Button
                 size="lg"

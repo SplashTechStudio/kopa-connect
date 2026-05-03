@@ -112,7 +112,7 @@ const ListingDetail = () => {
             </div>
             <div className="mt-4 rounded-xl bg-surface-alt p-3 text-xs flex items-start gap-2">
               <ShieldCheck className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-              <div className="text-muted-foreground">Identity verified by a Kopa scout. Always sign your tenancy agreement on the platform — never pay outside Safetrade.</div>
+              <div className="text-muted-foreground">Identity verified by a CorperOne scout. Always sign your tenancy agreement on the platform — never pay outside Safetrade.</div>
             </div>
           </div>
         </aside>

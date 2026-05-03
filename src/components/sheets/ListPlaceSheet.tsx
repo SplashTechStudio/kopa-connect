@@ -120,7 +120,7 @@ export const ListPlaceSheet = ({ open, onOpenChange }: { open: boolean; onOpenCh
                 <ShieldCheck className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                 <div>
                   <div className="font-semibold">Verification within 24 hours.</div>
-                  <div className="text-muted-foreground mt-0.5">A Kopa scout visits to confirm photos and meet the landlord — then your listing is live.</div>
+                  <div className="text-muted-foreground mt-0.5">A CorperOne scout visits to confirm photos and meet the landlord — then your listing is live.</div>
                 </div>
               </div>
 

@@ -184,7 +184,7 @@ const Community = () => {
               Trending in {member?.state ?? "Lagos"}
             </div>
             <div className="mt-3 space-y-3 text-sm">
-              {["#AprilAllawee", "#PPAStruggles", "#OwerriCorpers", "#KopaAcademy", "#POPVibes"].map((t) => (
+              {["#AprilAllawee", "#PPAStruggles", "#OwerriCorpers", "#CorperOneAcademy", "#POPVibes"].map((t) => (
                 <div key={t} className="flex items-center justify-between">
                   <span className="font-semibold">{t}</span>
                   <span className="text-xs text-muted-foreground">
